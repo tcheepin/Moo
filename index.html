@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reservoir Modeller Questionnaire</title>
+    
+    <style type="text/css">
+        /* cyrillic-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3GUBGEe.woff2) format('woff2');
+            unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        }
+        /* cyrillic */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3iUBGEe.woff2) format('woff2');
+            unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+        /* greek-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3CUBGEe.woff2) format('woff2');
+            unicode-range: U+1F00-1FFF;
+        }
+        /* greek */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3-UBGEe.woff2) format('woff2');
+            unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+        }
+        /* math */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2) format('woff2');
+            unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+        }
+        /* symbols */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2) format('woff2');
+            unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;
+        }
+        /* vietnamese */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBGEe.woff2) format('woff2');
+            unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        }
+        /* latin-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBGEe.woff2) format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        /* cyrillic-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3GUBGEe.woff2) format('woff2');
+            unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        }
+        /* cyrillic */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3iUBGEe.woff2) format('woff2');
+            unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+        /* greek-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3CUBGEe.woff2) format('woff2');
+            unicode-range: U+1F00-1FFF;
+        }
+        /* greek */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3-UBGEe.woff2) format('woff2');
+            unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+        }
+        /* math */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2) format('woff2');
+            unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+        }
+        /* symbols */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2) format('woff2');
+            unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;
+        }
+        /* vietnamese */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBGEe.woff2) format('woff2');
+            unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        }
+        /* latin-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBGEe.woff2) format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        /* cyrillic-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3GUBGEe.woff2) format('woff2');
+            unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        }
+        /* cyrillic */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3iUBGEe.woff2) format('woff2');
+            unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+        /* greek-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3CUBGEe.woff2) format('woff2');
+            unicode-range: U+1F00-1FFF;
+        }
+        /* greek */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3-UBGEe.woff2) format('woff2');
+            unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+        }
+        /* math */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2) format('woff2');
+            unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+        }
+        /* symbols */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2) format('woff2');
+            unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;
+        }
+        /* vietnamese */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBGEe.woff2) format('woff2');
+            unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        }
+        /* latin-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBGEe.woff2) format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        /* cyrillic-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 600;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3GUBGEe.woff2) format('woff2');
+            unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        }
+        /* cyrillic */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 600;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3iUBGEe.woff2) format('woff2');
+            unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+        /* greek-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 600;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3CUBGEe.woff2) format('woff2');
+            unicode-range: U+1F00-1FFF;
+        }
+        /* greek */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 600;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3-UBGEe.woff2) format('woff2');
+            unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+        }
+        /* math */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 600;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2) format('woff2');
+            unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+        }
+        /* symbols */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 600;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2) format('woff2');
+            unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;
+        }
+        /* vietnamese */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 600;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBGEe.woff2) format('woff2');
+            unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        }
+        /* latin-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 600;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBGEe.woff2) format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 600;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        /* cyrillic-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3GUBGEe.woff2) format('woff2');
+            unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        }
+        /* cyrillic */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3iUBGEe.woff2) format('woff2');
+            unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+        /* greek-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3CUBGEe.woff2) format('woff2');
+            unicode-range: U+1F00-1FFF;
+        }
+        /* greek */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3-UBGEe.woff2) format('woff2');
+            unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+        }
+        /* math */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2) format('woff2');
+            unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+        }
+        /* symbols */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2) format('woff2');
+            unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;
+        }
+        /* vietnamese */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBGEe.woff2) format('woff2');
+            unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        }
+        /* latin-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBGEe.woff2) format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            font-stretch: 100%;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+
+
+    </style>
+
+    <script>
+    /*! choices.js v11.1.0 | © 2025 Josh Johnson | https://github.com/jshjohnson/Choices#readme */
+!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):(e="undefined"!=typeof globalThis?globalThis:e||self).Choices=t()}(this,(function(){"use strict";var e=function(t,i){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var i in t)Object.prototype.hasOwnProperty.call(t,i)&&(e[i]=t[i])},e(t,i)};function t(t,i){if("function"!=typeof i&&null!==i)throw new TypeError("Class extends value "+String(i)+" is not a constructor or null");function n(){this.constructor=t}e(t,i),t.prototype=null===i?Object.create(i):(n.prototype=i.prototype,new n)}var i=function(){return i=Object.assign||function(e){for(var t,i=1,n=arguments.length;i<n;i++)for(var s in t=arguments[i])Object.prototype.hasOwnProperty.call(t,s)&&(e[s]=t[s]);return e},i.apply(this,arguments)};function n(e,t,i){if(i||2===arguments.length)for(var n,s=0,o=t.length;s<o;s++)!n&&s in t||(n||(n=Array.prototype.slice.call(t,0,s)),n[s]=t[s]);return e.concat(n||Array.prototype.slice.call(t))}"function"==typeof SuppressedError&&SuppressedError;var s,o="ADD_CHOICE",r="REMOVE_CHOICE",c="FILTER_CHOICES",a="ACTIVATE_CHOICES",h="CLEAR_CHOICES",l="ADD_GROUP",u="ADD_ITEM",d="REMOVE_ITEM",p="HIGHLIGHT_ITEM",f="search",m="removeItem",g="highlightItem",v=["fuseOptions","classNames"],_="select-one",y="select-multiple",b=function(e){return{type:o,choice:e}},E=function(e){return{type:u,item:e}},C=function(e){return{type:d,item:e}},S=function(e,t){return{type:p,item:e,highlighted:t}},w=function(e){return Array.from({length:e},(function(){return Math.floor(36*Math.random()+0).toString(36)})).join("")},I=function(e){if("string"!=typeof e){if(null==e)return"";if("object"==typeof e){if("raw"in e)return I(e.raw);if("trusted"in e)return e.trusted}return e}return e.replace(/&/g,"&amp;").replace(/>/g,"&gt;").replace(/</g,"&lt;").replace(/'/g,"&#039;").replace(/"/g,"&quot;")},A=(s=document.createElement("div"),function(e){s.innerHTML=e.trim();for(var t=s.children[0];s.firstChild;)s.removeChild(s.firstChild);return t}),x=function(e,t){return"function"==typeof e?e(I(t),t):e},O=function(e){return"function"==typeof e?e():e},L=function(e){if("string"==typeof e)return e;if("object"==typeof e){if("trusted"in e)return e.trusted;if("raw"in e)return e.raw}return""},M=function(e){if("string"==typeof e)return e;if("object"==typeof e){if("escaped"in e)return e.escaped;if("trusted"in e)return e.trusted}return""},T=function(e,t){return e?M(t):I(t)},N=function(e,t,i){e.innerHTML=T(t,i)},k=function(e,t){return e.rank-t.rank},F=function(e){return Array.isArray(e)?e:[e]},D=function(e){return e&&Array.isArray(e)?e.map((function(e){return".".concat(e)})).join(""):".".concat(e)},P=function(e,t){var i;(i=e.classList).add.apply(i,F(t))},j=function(e,t){var i;(i=e.classList).remove.apply(i,F(t))},R=function(e){if(void 0!==e)try{return JSON.parse(e)}catch(t){return e}return{}},K=function(){function e(e){var t=e.type,i=e.classNames;this.element=e.element,this.classNames=i,this.type=t,this.isActive=!1}return e.prototype.show=function(){return P(this.element,this.classNames.activeState),this.element.setAttribute("aria-expanded","true"),this.isActive=!0,this},e.prototype.hide=function(){return j(this.element,this.classNames.activeState),this.element.setAttribute("aria-expanded","false"),this.isActive=!1,this},e}(),V=function(){function e(e){var t=e.type,i=e.classNames,n=e.position;this.element=e.element,this.classNames=i,this.type=t,this.position=n,this.isOpen=!1,this.isFlipped=!1,this.isDisabled=!1,this.isLoading=!1}return e.prototype.shouldFlip=function(e,t){var i=!1;return"auto"===this.position?i=this.element.getBoundingClientRect().top-t>=0&&!window.matchMedia("(min-height: ".concat(e+1,"px)")).matches:"top"===this.position&&(i=!0),i},e.prototype.setActiveDescendant=function(e){this.element.setAttribute("aria-activedescendant",e)},e.prototype.removeActiveDescendant=function(){this.element.removeAttribute("aria-activedescendant")},e.prototype.open=function(e,t){P(this.element,this.classNames.openState),this.element.setAttribute("aria-expanded","true"),this.isOpen=!0,this.shouldFlip(e,t)&&(P(this.element,this.classNames.flippedState),this.isFlipped=!0)},e.prototype.close=function(){j(this.element,this.classNames.openState),this.element.setAttribute("aria-expanded","false"),this.removeActiveDescendant(),this.isOpen=!1,this.isFlipped&&(j(this.element,this.classNames.flippedState),this.isFlipped=!1)},e.prototype.addFocusState=function(){P(this.element,this.classNames.focusState)},e.prototype.removeFocusState=function(){j(this.element,this.classNames.focusState)},e.prototype.enable=function(){j(this.element,this.classNames.disabledState),this.element.removeAttribute("aria-disabled"),this.type===_&&this.element.setAttribute("tabindex","0"),this.isDisabled=!1},e.prototype.disable=function(){P(this.element,this.classNames.disabledState),this.element.setAttribute("aria-disabled","true"),this.type===_&&this.element.setAttribute("tabindex","-1"),this.isDisabled=!0},e.prototype.wrap=function(e){var t=this.element,i=e.parentNode;i&&(e.nextSibling?i.insertBefore(t,e.nextSibling):i.appendChild(t)),t.appendChild(e)},e.prototype.unwrap=function(e){var t=this.element,i=t.parentNode;i&&(i.insertBefore(e,t),i.removeChild(t))},e.prototype.addLoadingState=function(){P(this.element,this.classNames.loadingState),this.element.setAttribute("aria-busy","true"),this.isLoading=!0},e.prototype.removeLoadingState=function(){j(this.element,this.classNames.loadingState),this.element.removeAttribute("aria-busy"),this.isLoading=!1},e}(),B=function(){function e(e){var t=e.element,i=e.type,n=e.classNames,s=e.preventPaste;this.element=t,this.type=i,this.classNames=n,this.preventPaste=s,this.isFocussed=this.element.isEqualNode(document.activeElement),this.isDisabled=t.disabled,this._onPaste=this._onPaste.bind(this),this._onInput=this._onInput.bind(this),this._onFocus=this._onFocus.bind(this),this._onBlur=this._onBlur.bind(this)}return Object.defineProperty(e.prototype,"placeholder",{set:function(e){this.element.placeholder=e},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"value",{get:function(){return this.element.value},set:function(e){this.element.value=e},enumerable:!1,configurable:!0}),e.prototype.addEventListeners=function(){var e=this.element;e.addEventListener("paste",this._onPaste),e.addEventListener("input",this._onInput,{passive:!0}),e.addEventListener("focus",this._onFocus,{passive:!0}),e.addEventListener("blur",this._onBlur,{passive:!0})},e.prototype.removeEventListeners=function(){var e=this.element;e.removeEventListener("input",this._onInput),e.removeEventListener("paste",this._onPaste),e.removeEventListener("focus",this._onFocus),e.removeEventListener("blur",this._onBlur)},e.prototype.enable=function(){this.element.removeAttribute("disabled"),this.isDisabled=!1},e.prototype.disable=function(){this.element.setAttribute("disabled",""),this.isDisabled=!0},e.prototype.focus=function(){this.isFocussed||this.element.focus()},e.prototype.blur=function(){this.isFocussed&&this.element.blur()},e.prototype.clear=function(e){return void 0===e&&(e=!0),this.element.value="",e&&this.setWidth(),this},e.prototype.setWidth=function(){var e=this.element;e.style.minWidth="".concat(e.placeholder.length+1,"ch"),e.style.width="".concat(e.value.length+1,"ch")},e.prototype.setActiveDescendant=function(e){this.element.setAttribute("aria-activedescendant",e)},e.prototype.removeActiveDescendant=function(){this.element.removeAttribute("aria-activedescendant")},e.prototype._onInput=function(){this.type!==_&&this.setWidth()},e.prototype._onPaste=function(e){this.preventPaste&&e.preventDefault()},e.prototype._onFocus=function(){this.isFocussed=!0},e.prototype._onBlur=function(){this.isFocussed=!1},e}(),H=function(){function e(e){this.element=e.element,this.scrollPos=this.element.scrollTop,this.height=this.element.offsetHeight}return e.prototype.prepend=function(e){var t=this.element.firstElementChild;t?this.element.insertBefore(e,t):this.element.append(e)},e.prototype.scrollToTop=function(){this.element.scrollTop=0},e.prototype.scrollToChildElement=function(e,t){var i=this;if(e){var n=t>0?this.element.scrollTop+(e.offsetTop+e.offsetHeight)-(this.element.scrollTop+this.element.offsetHeight):e.offsetTop;requestAnimationFrame((function(){i._animateScroll(n,t)}))}},e.prototype._scrollDown=function(e,t,i){var n=(i-e)/t;this.element.scrollTop=e+(n>1?n:1)},e.prototype._scrollUp=function(e,t,i){var n=(e-i)/t;this.element.scrollTop=e-(n>1?n:1)},e.prototype._animateScroll=function(e,t){var i=this,n=this.element.scrollTop,s=!1;t>0?(this._scrollDown(n,4,e),n<e&&(s=!0)):(this._scrollUp(n,4,e),n>e&&(s=!0)),s&&requestAnimationFrame((function(){i._animateScroll(e,t)}))},e}(),$=function(){function e(e){var t=e.classNames;this.element=e.element,this.classNames=t,this.isDisabled=!1}return Object.defineProperty(e.prototype,"isActive",{get:function(){return"active"===this.element.dataset.choice},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"dir",{get:function(){return this.element.dir},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"value",{get:function(){return this.element.value},set:function(e){this.element.setAttribute("value",e),this.element.value=e},enumerable:!1,configurable:!0}),e.prototype.conceal=function(){var e=this.element;P(e,this.classNames.input),e.hidden=!0,e.tabIndex=-1;var t=e.getAttribute("style");t&&e.setAttribute("data-choice-orig-style",t),e.setAttribute("data-choice","active")},e.prototype.reveal=function(){var e=this.element;j(e,this.classNames.input),e.hidden=!1,e.removeAttribute("tabindex");var t=e.getAttribute("data-choice-orig-style");t?(e.removeAttribute("data-choice-orig-style"),e.setAttribute("style",t)):e.removeAttribute("style"),e.removeAttribute("data-choice")},e.prototype.enable=function(){this.element.removeAttribute("disabled"),this.element.disabled=!1,this.isDisabled=!1},e.prototype.disable=function(){this.element.setAttribute("disabled",""),this.element.disabled=!0,this.isDisabled=!0},e.prototype.triggerEvent=function(e,t){var i;void 0===(i=t||{})&&(i=null),this.element.dispatchEvent(new CustomEvent(e,{detail:i,bubbles:!0,cancelable:!0}))},e}(),q=function(e){function i(){return null!==e&&e.apply(this,arguments)||this}return t(i,e),i}($),W=function(e,t){return void 0===t&&(t=!0),void 0===e?t:!!e},U=function(e){if("string"==typeof e&&(e=e.split(" ").filter((function(e){return e.length}))),Array.isArray(e)&&e.length)return e},G=function(e,t,i){if(void 0===i&&(i=!0),"string"==typeof e){var n=I(e);return G({value:e,label:i||n===e?e:{escaped:n,raw:e},selected:!0},!1)}var s=e;if("choices"in s){if(!t)throw new TypeError("optGroup is not allowed");var o=s,r=o.choices.map((function(e){return G(e,!1)}));return{id:0,label:L(o.label)||o.value,active:!!r.length,disabled:!!o.disabled,choices:r}}var c=s;return{id:0,group:null,score:0,rank:0,value:c.value,label:c.label||c.value,active:W(c.active),selected:W(c.selected,!1),disabled:W(c.disabled,!1),placeholder:W(c.placeholder,!1),highlighted:!1,labelClass:U(c.labelClass),labelDescription:c.labelDescription,customProperties:c.customProperties}},z=function(e){return"SELECT"===e.tagName},J=function(e){function i(t){var i=t.template,n=t.extractPlaceholder,s=e.call(this,{element:t.element,classNames:t.classNames})||this;return s.template=i,s.extractPlaceholder=n,s}return t(i,e),Object.defineProperty(i.prototype,"placeholderOption",{get:function(){return this.element.querySelector('option[value=""]')||this.element.querySelector("option[placeholder]")},enumerable:!1,configurable:!0}),i.prototype.addOptions=function(e){var t=this,i=document.createDocumentFragment();e.forEach((function(e){var n=e;if(!n.element){var s=t.template(n);i.appendChild(s),n.element=s}})),this.element.appendChild(i)},i.prototype.optionsAsChoices=function(){var e=this,t=[];return this.element.querySelectorAll(":scope > option, :scope > optgroup").forEach((function(i){!function(e){return"OPTION"===e.tagName}(i)?function(e){return"OPTGROUP"===e.tagName}(i)&&t.push(e._optgroupToChoice(i)):t.push(e._optionToChoice(i))})),t},i.prototype._optionToChoice=function(e){return!e.hasAttribute("value")&&e.hasAttribute("placeholder")&&(e.setAttribute("value",""),e.value=""),{id:0,group:null,score:0,rank:0,value:e.value,label:e.label,element:e,active:!0,selected:this.extractPlaceholder?e.selected:e.hasAttribute("selected"),disabled:e.disabled,highlighted:!1,placeholder:this.extractPlaceholder&&(!e.value||e.hasAttribute("placeholder")),labelClass:void 0!==e.dataset.labelClass?U(e.dataset.labelClass):void 0,labelDescription:void 0!==e.dataset.labelDescription?e.dataset.labelDescription:void 0,customProperties:R(e.dataset.customProperties)}},i.prototype._optgroupToChoice=function(e){var t=this,i=e.querySelectorAll("option"),n=Array.from(i).map((function(e){return t._optionToChoice(e)}));return{id:0,label:e.label||"",element:e,active:!!n.length,disabled:e.disabled,choices:n}},i}($),X={items:[],choices:[],silent:!1,renderChoiceLimit:-1,maxItemCount:-1,closeDropdownOnSelect:"auto",singleModeForMultiSelect:!1,addChoices:!1,addItems:!0,addItemFilter:function(e){return!!e&&""!==e},removeItems:!0,removeItemButton:!1,removeItemButtonAlignLeft:!1,editItems:!1,allowHTML:!1,allowHtmlUserInput:!1,duplicateItemsAllowed:!0,delimiter:",",paste:!0,searchEnabled:!0,searchChoices:!0,searchFloor:1,searchResultLimit:4,searchFields:["label","value"],position:"auto",resetScrollPosition:!0,shouldSort:!0,shouldSortItems:!1,sorter:function(e,t){var i=e.label,n=t.label,s=void 0===n?t.value:n;return L(void 0===i?e.value:i).localeCompare(L(s),[],{sensitivity:"base",ignorePunctuation:!0,numeric:!0})},shadowRoot:null,placeholder:!0,placeholderValue:null,searchPlaceholderValue:null,prependValue:null,appendValue:null,renderSelectedChoices:"auto",loadingText:"Loading...",noResultsText:"No results found",noChoicesText:"No choices to choose from",itemSelectText:"Press to select",uniqueItemText:"Only unique values can be added",customAddItemText:"Only values matching specific conditions can be added",addItemText:function(e){return'Press Enter to add <b>"'.concat(e,'"</b>')},removeItemIconText:function(){return"Remove item"},removeItemLabelText:function(e){return"Remove item: ".concat(e)},maxItemText:function(e){return"Only ".concat(e," values can be added")},valueComparer:function(e,t){return e===t},fuseOptions:{includeScore:!0},labelId:"",callbackOnInit:null,callbackOnCreateTemplates:null,classNames:{containerOuter:["choices"],containerInner:["choices__inner"],input:["choices__input"],inputCloned:["choices__input--cloned"],list:["choices__list"],listItems:["choices__list--multiple"],listSingle:["choices__list--single"],listDropdown:["choices__list--dropdown"],item:["choices__item"],itemSelectable:["choices__item--selectable"],itemDisabled:["choices__item--disabled"],itemChoice:["choices__item--choice"],description:["choices__description"],placeholder:["choices__placeholder"],group:["choices__group"],groupHeading:["choices__heading"],button:["choices__button"],activeState:["is-active"],focusState:["is-focused"],openState:["is-open"],disabledState:["is-disabled"],highlightedState:["is-highlighted"],selectedState:["is-selected"],flippedState:["is-flipped"],loadingState:["is-loading"],notice:["choices__notice"],addChoice:["choices__item--selectable","add-choice"],noResults:["has-no-results"],noChoices:["has-no-choices"]},appendGroupInSearch:!1},Q=function(e){var t=e.itemEl;t&&(t.remove(),e.itemEl=void 0)},Y={groups:function(e,t){var i=e,n=!0;switch(t.type){case l:i.push(t.group);break;case h:i=[];break;default:n=!1}return{state:i,update:n}},items:function(e,t,i){var n=e,s=!0;switch(t.type){case u:t.item.selected=!0,(o=t.item.element)&&(o.selected=!0,o.setAttribute("selected","")),n.push(t.item);break;case d:var o;if(t.item.selected=!1,o=t.item.element){o.selected=!1,o.removeAttribute("selected");var c=o.parentElement;c&&z(c)&&c.type===_&&(c.value="")}Q(t.item),n=n.filter((function(e){return e.id!==t.item.id}));break;case r:Q(t.choice),n=n.filter((function(e){return e.id!==t.choice.id}));break;case p:var a=t.highlighted,h=n.find((function(e){return e.id===t.item.id}));h&&h.highlighted!==a&&(h.highlighted=a,i&&function(e,t,i){var n=e.itemEl;n&&(j(n,i),P(n,t))}(h,a?i.classNames.highlightedState:i.classNames.selectedState,a?i.classNames.selectedState:i.classNames.highlightedState));break;default:s=!1}return{state:n,update:s}},choices:function(e,t,i){var n=e,s=!0;switch(t.type){case o:n.push(t.choice);break;case r:t.choice.choiceEl=void 0,t.choice.group&&(t.choice.group.choices=t.choice.group.choices.filter((function(e){return e.id!==t.choice.id}))),n=n.filter((function(e){return e.id!==t.choice.id}));break;case u:case d:t.item.choiceEl=void 0;break;case c:var l=[];t.results.forEach((function(e){l[e.item.id]=e})),n.forEach((function(e){var t=l[e.id];void 0!==t?(e.score=t.score,e.rank=t.rank,e.active=!0):(e.score=0,e.rank=0,e.active=!1),i&&i.appendGroupInSearch&&(e.choiceEl=void 0)}));break;case a:n.forEach((function(e){e.active=t.active,i&&i.appendGroupInSearch&&(e.choiceEl=void 0)}));break;case h:n=[];break;default:s=!1}return{state:n,update:s}}},Z=function(){function e(e){this._state=this.defaultState,this._listeners=[],this._txn=0,this._context=e}return Object.defineProperty(e.prototype,"defaultState",{get:function(){return{groups:[],items:[],choices:[]}},enumerable:!1,configurable:!0}),e.prototype.changeSet=function(e){return{groups:e,items:e,choices:e}},e.prototype.reset=function(){this._state=this.defaultState;var e=this.changeSet(!0);this._txn?this._changeSet=e:this._listeners.forEach((function(t){return t(e)}))},e.prototype.subscribe=function(e){return this._listeners.push(e),this},e.prototype.dispatch=function(e){var t=this,i=this._state,n=!1,s=this._changeSet||this.changeSet(!1);Object.keys(Y).forEach((function(o){var r=Y[o](i[o],e,t._context);r.update&&(n=!0,s[o]=!0,i[o]=r.state)})),n&&(this._txn?this._changeSet=s:this._listeners.forEach((function(e){return e(s)})))},e.prototype.withTxn=function(e){this._txn++;try{e()}finally{if(this._txn=Math.max(0,this._txn-1),!this._txn){var t=this._changeSet;t&&(this._changeSet=void 0,this._listeners.forEach((function(e){return e(t)})))}}},Object.defineProperty(e.prototype,"state",{get:function(){return this._state},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"items",{get:function(){return this.state.items},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"highlightedActiveItems",{get:function(){return this.items.filter((function(e){return e.active&&e.highlighted}))},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"choices",{get:function(){return this.state.choices},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"activeChoices",{get:function(){return this.choices.filter((function(e){return e.active}))},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"searchableChoices",{get:function(){return this.choices.filter((function(e){return!e.disabled&&!e.placeholder}))},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"groups",{get:function(){return this.state.groups},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"activeGroups",{get:function(){var e=this;return this.state.groups.filter((function(t){var i=t.active&&!t.disabled,n=e.state.choices.some((function(e){return e.active&&!e.disabled}));return i&&n}),[])},enumerable:!1,configurable:!0}),e.prototype.inTxn=function(){return this._txn>0},e.prototype.getChoiceById=function(e){return this.activeChoices.find((function(t){return t.id===e}))},e.prototype.getGroupById=function(e){return this.groups.find((function(t){return t.id===e}))},e}(),ee="no-choices",te="no-results",ie="add-choice";function ne(e,t,i){return(t=function(e){var t=function(e){if("object"!=typeof e||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var i=t.call(e,"string");if("object"!=typeof i)return i;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==typeof t?t:t+""}(t))in e?Object.defineProperty(e,t,{value:i,enumerable:!0,configurable:!0,writable:!0}):e[t]=i,e}function se(e,t){var i=Object.keys(e);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(e);t&&(n=n.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),i.push.apply(i,n)}return i}function oe(e){for(var t=1;t<arguments.length;t++){var i=null!=arguments[t]?arguments[t]:{};t%2?se(Object(i),!0).forEach((function(t){ne(e,t,i[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(i)):se(Object(i)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(i,t))}))}return e}function re(e){return Array.isArray?Array.isArray(e):"[object Array]"===de(e)}function ce(e){return"string"==typeof e}function ae(e){return"number"==typeof e}function he(e){return"object"==typeof e}function le(e){return null!=e}function ue(e){return!e.trim().length}function de(e){return null==e?void 0===e?"[object Undefined]":"[object Null]":Object.prototype.toString.call(e)}const pe=e=>`Missing ${e} property in key`,fe=e=>`Property 'weight' in key '${e}' must be a positive integer`,me=Object.prototype.hasOwnProperty;class ge{constructor(e){this._keys=[],this._keyMap={};let t=0;e.forEach((e=>{let i=ve(e);this._keys.push(i),this._keyMap[i.id]=i,t+=i.weight})),this._keys.forEach((e=>{e.weight/=t}))}get(e){return this._keyMap[e]}keys(){return this._keys}toJSON(){return JSON.stringify(this._keys)}}function ve(e){let t=null,i=null,n=null,s=1,o=null;if(ce(e)||re(e))n=e,t=_e(e),i=ye(e);else{if(!me.call(e,"name"))throw new Error(pe("name"));const r=e.name;if(n=r,me.call(e,"weight")&&(s=e.weight,s<=0))throw new Error(fe(r));t=_e(r),i=ye(r),o=e.getFn}return{path:t,id:i,weight:s,src:n,getFn:o}}function _e(e){return re(e)?e:e.split(".")}function ye(e){return re(e)?e.join("."):e}const be={useExtendedSearch:!1,getFn:function(e,t){let i=[],n=!1;const s=(e,t,o)=>{if(le(e))if(t[o]){const r=e[t[o]];if(!le(r))return;if(o===t.length-1&&(ce(r)||ae(r)||function(e){return!0===e||!1===e||function(e){return he(e)&&null!==e}(e)&&"[object Boolean]"==de(e)}(r)))i.push(function(e){return null==e?"":function(e){if("string"==typeof e)return e;let t=e+"";return"0"==t&&1/e==-1/0?"-0":t}(e)}(r));else if(re(r)){n=!0;for(let e=0,i=r.length;e<i;e+=1)s(r[e],t,o+1)}else t.length&&s(r,t,o+1)}else i.push(e)};return s(e,ce(t)?t.split("."):t,0),n?i:i[0]},ignoreLocation:!1,ignoreFieldNorm:!1,fieldNormWeight:1};var Ee=oe(oe(oe(oe({},{isCaseSensitive:!1,includeScore:!1,keys:[],shouldSort:!0,sortFn:(e,t)=>e.score===t.score?e.idx<t.idx?-1:1:e.score<t.score?-1:1}),{includeMatches:!1,findAllMatches:!1,minMatchCharLength:1}),{location:0,threshold:.6,distance:100}),be);const Ce=/[^ ]+/g;class Se{constructor({getFn:e=Ee.getFn,fieldNormWeight:t=Ee.fieldNormWeight}={}){this.norm=function(e=1,t=3){const i=new Map,n=Math.pow(10,t);return{get(t){const s=t.match(Ce).length;if(i.has(s))return i.get(s);const o=1/Math.pow(s,.5*e),r=parseFloat(Math.round(o*n)/n);return i.set(s,r),r},clear(){i.clear()}}}(t,3),this.getFn=e,this.isCreated=!1,this.setIndexRecords()}setSources(e=[]){this.docs=e}setIndexRecords(e=[]){this.records=e}setKeys(e=[]){this.keys=e,this._keysMap={},e.forEach(((e,t)=>{this._keysMap[e.id]=t}))}create(){!this.isCreated&&this.docs.length&&(this.isCreated=!0,ce(this.docs[0])?this.docs.forEach(((e,t)=>{this._addString(e,t)})):this.docs.forEach(((e,t)=>{this._addObject(e,t)})),this.norm.clear())}add(e){const t=this.size();ce(e)?this._addString(e,t):this._addObject(e,t)}removeAt(e){this.records.splice(e,1);for(let t=e,i=this.size();t<i;t+=1)this.records[t].i-=1}getValueForItemAtKeyId(e,t){return e[this._keysMap[t]]}size(){return this.records.length}_addString(e,t){if(!le(e)||ue(e))return;let i={v:e,i:t,n:this.norm.get(e)};this.records.push(i)}_addObject(e,t){let i={i:t,$:{}};this.keys.forEach(((t,n)=>{let s=t.getFn?t.getFn(e):this.getFn(e,t.path);if(le(s))if(re(s)){let e=[];const t=[{nestedArrIndex:-1,value:s}];for(;t.length;){const{nestedArrIndex:i,value:n}=t.pop();if(le(n))if(ce(n)&&!ue(n)){let t={v:n,i:i,n:this.norm.get(n)};e.push(t)}else re(n)&&n.forEach(((e,i)=>{t.push({nestedArrIndex:i,value:e})}))}i.$[n]=e}else if(ce(s)&&!ue(s)){let e={v:s,n:this.norm.get(s)};i.$[n]=e}})),this.records.push(i)}toJSON(){return{keys:this.keys,records:this.records}}}function we(e,t,{getFn:i=Ee.getFn,fieldNormWeight:n=Ee.fieldNormWeight}={}){const s=new Se({getFn:i,fieldNormWeight:n});return s.setKeys(e.map(ve)),s.setSources(t),s.create(),s}function Ie(e,{errors:t=0,currentLocation:i=0,expectedLocation:n=0,distance:s=Ee.distance,ignoreLocation:o=Ee.ignoreLocation}={}){const r=t/e.length;if(o)return r;const c=Math.abs(n-i);return s?r+c/s:c?1:r}const Ae=32;function xe(e){let t={};for(let i=0,n=e.length;i<n;i+=1){const s=e.charAt(i);t[s]=(t[s]||0)|1<<n-i-1}return t}class Oe{constructor(e,{location:t=Ee.location,threshold:i=Ee.threshold,distance:n=Ee.distance,includeMatches:s=Ee.includeMatches,findAllMatches:o=Ee.findAllMatches,minMatchCharLength:r=Ee.minMatchCharLength,isCaseSensitive:c=Ee.isCaseSensitive,ignoreLocation:a=Ee.ignoreLocation}={}){if(this.options={location:t,threshold:i,distance:n,includeMatches:s,findAllMatches:o,minMatchCharLength:r,isCaseSensitive:c,ignoreLocation:a},this.pattern=c?e:e.toLowerCase(),this.chunks=[],!this.pattern.length)return;const h=(e,t)=>{this.chunks.push({pattern:e,alphabet:xe(e),startIndex:t})},l=this.pattern.length;if(l>Ae){let e=0;const t=l%Ae,i=l-t;for(;e<i;)h(this.pattern.substr(e,Ae),e),e+=Ae;if(t){const e=l-Ae;h(this.pattern.substr(e),e)}}else h(this.pattern,0)}searchIn(e){const{isCaseSensitive:t,includeMatches:i}=this.options;if(t||(e=e.toLowerCase()),this.pattern===e){let t={isMatch:!0,score:0};return i&&(t.indices=[[0,e.length-1]]),t}const{location:n,distance:s,threshold:o,findAllMatches:r,minMatchCharLength:c,ignoreLocation:a}=this.options;let h=[],l=0,u=!1;this.chunks.forEach((({pattern:t,alphabet:d,startIndex:p})=>{const{isMatch:f,score:m,indices:g}=function(e,t,i,{location:n=Ee.location,distance:s=Ee.distance,threshold:o=Ee.threshold,findAllMatches:r=Ee.findAllMatches,minMatchCharLength:c=Ee.minMatchCharLength,includeMatches:a=Ee.includeMatches,ignoreLocation:h=Ee.ignoreLocation}={}){if(t.length>Ae)throw new Error("Pattern length exceeds max of 32.");const l=t.length,u=e.length,d=Math.max(0,Math.min(n,u));let p=o,f=d;const m=c>1||a,g=m?Array(u):[];let v;for(;(v=e.indexOf(t,f))>-1;){let e=Ie(t,{currentLocation:v,expectedLocation:d,distance:s,ignoreLocation:h});if(p=Math.min(e,p),f=v+l,m){let e=0;for(;e<l;)g[v+e]=1,e+=1}}f=-1;let _=[],y=1,b=l+u;const E=1<<l-1;for(let n=0;n<l;n+=1){let o=0,c=b;for(;o<c;)Ie(t,{errors:n,currentLocation:d+c,expectedLocation:d,distance:s,ignoreLocation:h})<=p?o=c:b=c,c=Math.floor((b-o)/2+o);b=c;let a=Math.max(1,d-c+1),v=r?u:Math.min(d+c,u)+l,C=Array(v+2);C[v+1]=(1<<n)-1;for(let o=v;o>=a;o-=1){let r=o-1,c=i[e.charAt(r)];if(m&&(g[r]=+!!c),C[o]=(C[o+1]<<1|1)&c,n&&(C[o]|=(_[o+1]|_[o])<<1|1|_[o+1]),C[o]&E&&(y=Ie(t,{errors:n,currentLocation:r,expectedLocation:d,distance:s,ignoreLocation:h}),y<=p)){if(p=y,f=r,f<=d)break;a=Math.max(1,2*d-f)}}if(Ie(t,{errors:n+1,currentLocation:d,expectedLocation:d,distance:s,ignoreLocation:h})>p)break;_=C}const C={isMatch:f>=0,score:Math.max(.001,y)};if(m){const e=function(e=[],t=Ee.minMatchCharLength){let i=[],n=-1,s=-1,o=0;for(let r=e.length;o<r;o+=1){let r=e[o];r&&-1===n?n=o:r||-1===n||(s=o-1,s-n+1>=t&&i.push([n,s]),n=-1)}return e[o-1]&&o-n>=t&&i.push([n,o-1]),i}(g,c);e.length?a&&(C.indices=e):C.isMatch=!1}return C}(e,t,d,{location:n+p,distance:s,threshold:o,findAllMatches:r,minMatchCharLength:c,includeMatches:i,ignoreLocation:a});f&&(u=!0),l+=m,f&&g&&(h=[...h,...g])}));let d={isMatch:u,score:u?l/this.chunks.length:1};return u&&i&&(d.indices=h),d}}class Le{constructor(e){this.pattern=e}static isMultiMatch(e){return Me(e,this.multiRegex)}static isSingleMatch(e){return Me(e,this.singleRegex)}search(){}}function Me(e,t){const i=e.match(t);return i?i[1]:null}class Te extends Le{constructor(e,{location:t=Ee.location,threshold:i=Ee.threshold,distance:n=Ee.distance,includeMatches:s=Ee.includeMatches,findAllMatches:o=Ee.findAllMatches,minMatchCharLength:r=Ee.minMatchCharLength,isCaseSensitive:c=Ee.isCaseSensitive,ignoreLocation:a=Ee.ignoreLocation}={}){super(e),this._bitapSearch=new Oe(e,{location:t,threshold:i,distance:n,includeMatches:s,findAllMatches:o,minMatchCharLength:r,isCaseSensitive:c,ignoreLocation:a})}static get type(){return"fuzzy"}static get multiRegex(){return/^"(.*)"$/}static get singleRegex(){return/^(.*)$/}search(e){return this._bitapSearch.searchIn(e)}}class Ne extends Le{constructor(e){super(e)}static get type(){return"include"}static get multiRegex(){return/^'"(.*)"$/}static get singleRegex(){return/^'(.*)$/}search(e){let t,i=0;const n=[],s=this.pattern.length;for(;(t=e.indexOf(this.pattern,i))>-1;)i=t+s,n.push([t,i-1]);const o=!!n.length;return{isMatch:o,score:o?0:1,indices:n}}}const ke=[class extends Le{constructor(e){super(e)}static get type(){return"exact"}static get multiRegex(){return/^="(.*)"$/}static get singleRegex(){return/^=(.*)$/}search(e){const t=e===this.pattern;return{isMatch:t,score:t?0:1,indices:[0,this.pattern.length-1]}}},Ne,class extends Le{constructor(e){super(e)}static get type(){return"prefix-exact"}static get multiRegex(){return/^\^"(.*)"$/}static get singleRegex(){return/^\^(.*)$/}search(e){const t=e.startsWith(this.pattern);return{isMatch:t,score:t?0:1,indices:[0,this.pattern.length-1]}}},class extends Le{constructor(e){super(e)}static get type(){return"inverse-prefix-exact"}static get multiRegex(){return/^!\^"(.*)"$/}static get singleRegex(){return/^!\^(.*)$/}search(e){const t=!e.startsWith(this.pattern);return{isMatch:t,score:t?0:1,indices:[0,e.length-1]}}},class extends Le{constructor(e){super(e)}static get type(){return"inverse-suffix-exact"}static get multiRegex(){return/^!"(.*)"\$$/}static get singleRegex(){return/^!(.*)\$$/}search(e){const t=!e.endsWith(this.pattern);return{isMatch:t,score:t?0:1,indices:[0,e.length-1]}}},class extends Le{constructor(e){super(e)}static get type(){return"suffix-exact"}static get multiRegex(){return/^"(.*)"\$$/}static get singleRegex(){return/^(.*)\$$/}search(e){const t=e.endsWith(this.pattern);return{isMatch:t,score:t?0:1,indices:[e.length-this.pattern.length,e.length-1]}}},class extends Le{constructor(e){super(e)}static get type(){return"inverse-exact"}static get multiRegex(){return/^!"(.*)"$/}static get singleRegex(){return/^!(.*)$/}search(e){const t=-1===e.indexOf(this.pattern);return{isMatch:t,score:t?0:1,indices:[0,e.length-1]}}},Te],Fe=ke.length,De=/ +(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)/,Pe=new Set([Te.type,Ne.type]);const je=[];function Re(e,t){for(let i=0,n=je.length;i<n;i+=1){let n=je[i];if(n.condition(e,t))return new n(e,t)}return new Oe(e,t)}const Ke="$and",Ve="$path",Be=e=>!(!e[Ke]&&!e.$or),He=e=>({[Ke]:Object.keys(e).map((t=>({[t]:e[t]})))});function $e(e,t,{auto:i=!0}={}){const n=e=>{let s=Object.keys(e);const o=(e=>!!e[Ve])(e);if(!o&&s.length>1&&!Be(e))return n(He(e));if((e=>!re(e)&&he(e)&&!Be(e))(e)){const n=o?e[Ve]:s[0],r=o?e.$val:e[n];if(!ce(r))throw new Error((e=>`Invalid value for key ${e}`)(n));const c={keyId:ye(n),pattern:r};return i&&(c.searcher=Re(r,t)),c}let r={children:[],operator:s[0]};return s.forEach((t=>{const i=e[t];re(i)&&i.forEach((e=>{r.children.push(n(e))}))})),r};return Be(e)||(e=He(e)),n(e)}function qe(e,t){const i=e.matches;t.matches=[],le(i)&&i.forEach((e=>{if(!le(e.indices)||!e.indices.length)return;const{indices:i,value:n}=e;let s={indices:i,value:n};e.key&&(s.key=e.key.src),e.idx>-1&&(s.refIndex=e.idx),t.matches.push(s)}))}function We(e,t){t.score=e.score}class Ue{constructor(e,t={},i){this.options=oe(oe({},Ee),t),this._keyStore=new ge(this.options.keys),this.setCollection(e,i)}setCollection(e,t){if(this._docs=e,t&&!(t instanceof Se))throw new Error("Incorrect 'index' type");this._myIndex=t||we(this.options.keys,this._docs,{getFn:this.options.getFn,fieldNormWeight:this.options.fieldNormWeight})}add(e){le(e)&&(this._docs.push(e),this._myIndex.add(e))}remove(e=()=>!1){const t=[];for(let i=0,n=this._docs.length;i<n;i+=1){const s=this._docs[i];e(s,i)&&(this.removeAt(i),i-=1,n-=1,t.push(s))}return t}removeAt(e){this._docs.splice(e,1),this._myIndex.removeAt(e)}getIndex(){return this._myIndex}search(e,{limit:t=-1}={}){const{includeMatches:i,includeScore:n,shouldSort:s,sortFn:o,ignoreFieldNorm:r}=this.options;let c=ce(e)?ce(this._docs[0])?this._searchStringList(e):this._searchObjectList(e):this._searchLogical(e);return function(e,{ignoreFieldNorm:t=Ee.ignoreFieldNorm}){e.forEach((e=>{let i=1;e.matches.forEach((({key:e,norm:n,score:s})=>{const o=e?e.weight:null;i*=Math.pow(0===s&&o?Number.EPSILON:s,(o||1)*(t?1:n))})),e.score=i}))}(c,{ignoreFieldNorm:r}),s&&c.sort(o),ae(t)&&t>-1&&(c=c.slice(0,t)),function(e,t,{includeMatches:i=Ee.includeMatches,includeScore:n=Ee.includeScore}={}){const s=[];return i&&s.push(qe),n&&s.push(We),e.map((e=>{const{idx:i}=e,n={item:t[i],refIndex:i};return s.length&&s.forEach((t=>{t(e,n)})),n}))}(c,this._docs,{includeMatches:i,includeScore:n})}_searchStringList(e){const t=Re(e,this.options),{records:i}=this._myIndex,n=[];return i.forEach((({v:e,i:i,n:s})=>{if(!le(e))return;const{isMatch:o,score:r,indices:c}=t.searchIn(e);o&&n.push({item:e,idx:i,matches:[{score:r,value:e,norm:s,indices:c}]})})),n}_searchLogical(e){const t=$e(e,this.options),i=(e,t,n)=>{if(!e.children){const{keyId:i,searcher:s}=e,o=this._findMatches({key:this._keyStore.get(i),value:this._myIndex.getValueForItemAtKeyId(t,i),searcher:s});return o&&o.length?[{idx:n,item:t,matches:o}]:[]}const s=[];for(let o=0,r=e.children.length;o<r;o+=1){const r=i(e.children[o],t,n);if(r.length)s.push(...r);else if(e.operator===Ke)return[]}return s},n={},s=[];return this._myIndex.records.forEach((({$:e,i:o})=>{if(le(e)){let r=i(t,e,o);r.length&&(n[o]||(n[o]={idx:o,item:e,matches:[]},s.push(n[o])),r.forEach((({matches:e})=>{n[o].matches.push(...e)})))}})),s}_searchObjectList(e){const t=Re(e,this.options),{keys:i,records:n}=this._myIndex,s=[];return n.forEach((({$:e,i:n})=>{if(!le(e))return;let o=[];i.forEach(((i,n)=>{o.push(...this._findMatches({key:i,value:e[n],searcher:t}))})),o.length&&s.push({idx:n,item:e,matches:o})})),s}_findMatches({key:e,value:t,searcher:i}){if(!le(t))return[];let n=[];if(re(t))t.forEach((({v:t,i:s,n:o})=>{if(!le(t))return;const{isMatch:r,score:c,indices:a}=i.searchIn(t);r&&n.push({score:c,key:e,value:t,idx:s,norm:o,indices:a})}));else{const{v:s,n:o}=t,{isMatch:r,score:c,indices:a}=i.searchIn(s);r&&n.push({score:c,key:e,value:s,norm:o,indices:a})}return n}}Ue.version="7.0.0",Ue.createIndex=we,Ue.parseIndex=function(e,{getFn:t=Ee.getFn,fieldNormWeight:i=Ee.fieldNormWeight}={}){const{keys:n,records:s}=e,o=new Se({getFn:t,fieldNormWeight:i});return o.setKeys(n),o.setIndexRecords(s),o},Ue.config=Ee,Ue.parseQuery=$e,function(...e){je.push(...e)}(class{constructor(e,{isCaseSensitive:t=Ee.isCaseSensitive,includeMatches:i=Ee.includeMatches,minMatchCharLength:n=Ee.minMatchCharLength,ignoreLocation:s=Ee.ignoreLocation,findAllMatches:o=Ee.findAllMatches,location:r=Ee.location,threshold:c=Ee.threshold,distance:a=Ee.distance}={}){this.query=null,this.options={isCaseSensitive:t,includeMatches:i,minMatchCharLength:n,findAllMatches:o,ignoreLocation:s,location:r,threshold:c,distance:a},this.pattern=t?e:e.toLowerCase(),this.query=function(e,t={}){return e.split("|").map((e=>{let i=e.trim().split(De).filter((e=>e&&!!e.trim())),n=[];for(let e=0,s=i.length;e<s;e+=1){const s=i[e];let o=!1,r=-1;for(;!o&&++r<Fe;){const e=ke[r];let i=e.isMultiMatch(s);i&&(n.push(new e(i,t)),o=!0)}if(!o)for(r=-1;++r<Fe;){const e=ke[r];let i=e.isSingleMatch(s);if(i){n.push(new e(i,t));break}}}return n}))}(this.pattern,this.options)}static condition(e,t){return t.useExtendedSearch}searchIn(e){const t=this.query;if(!t)return{isMatch:!1,score:1};const{includeMatches:i,isCaseSensitive:n}=this.options;e=n?e:e.toLowerCase();let s=0,o=[],r=0;for(let n=0,c=t.length;n<c;n+=1){const c=t[n];o.length=0,s=0;for(let t=0,n=c.length;t<n;t+=1){const n=c[t],{isMatch:a,indices:h,score:l}=n.search(e);if(!a){r=0,s=0,o.length=0;break}s+=1,r+=l,i&&(Pe.has(n.constructor.type)?o=[...o,...h]:o.push(h))}if(s){let e={isMatch:!0,score:r/s};return i&&(e.indices=o),e}}return{isMatch:!1,score:1}}});var Ge=function(){function e(e){this._haystack=[],this._fuseOptions=i(i({},e.fuseOptions),{keys:n([],e.searchFields,!0),includeMatches:!0})}return e.prototype.index=function(e){this._haystack=e,this._fuse&&this._fuse.setCollection(e)},e.prototype.reset=function(){this._haystack=[],this._fuse=void 0},e.prototype.isEmptyIndex=function(){return!this._haystack.length},e.prototype.search=function(e){return this._fuse||(this._fuse=new Ue(this._haystack,this._fuseOptions)),this._fuse.search(e).map((function(e,t){return{item:e.item,score:e.score||0,rank:t+1}}))},e}(),ze=function(e,t,i){var n=e.dataset,s=t.customProperties,o=t.labelClass,r=t.labelDescription;o&&(n.labelClass=F(o).join(" ")),r&&(n.labelDescription=r),i&&s&&("string"==typeof s?n.customProperties=s:"object"!=typeof s||function(e){for(var t in e)if(Object.prototype.hasOwnProperty.call(e,t))return!1;return!0}(s)||(n.customProperties=JSON.stringify(s)))},Je=function(e,t,i){var n=t&&e.querySelector("label[for='".concat(t,"']")),s=n&&n.innerText;s&&i.setAttribute("aria-label",s)},Xe={containerOuter:function(e,t,i,n,s,o,r){var c=e.classNames.containerOuter,a=document.createElement("div");return P(a,c),a.dataset.type=o,t&&(a.dir=t),n&&(a.tabIndex=0),i&&(a.setAttribute("role",s?"combobox":"listbox"),s?a.setAttribute("aria-autocomplete","list"):r||Je(this._docRoot,this.passedElement.element.id,a),a.setAttribute("aria-haspopup","true"),a.setAttribute("aria-expanded","false")),r&&a.setAttribute("aria-labelledby",r),a},containerInner:function(e){var t=e.classNames.containerInner,i=document.createElement("div");return P(i,t),i},itemList:function(e,t){var i=e.searchEnabled,n=e.classNames,s=n.list,o=n.listSingle,r=n.listItems,c=document.createElement("div");return P(c,s),P(c,t?o:r),this._isSelectElement&&i&&c.setAttribute("role","listbox"),c},placeholder:function(e,t){var i=e.allowHTML,n=e.classNames.placeholder,s=document.createElement("div");return P(s,n),N(s,i,t),s},item:function(e,t,i){var n=e.allowHTML,s=e.removeItemButtonAlignLeft,o=e.removeItemIconText,r=e.removeItemLabelText,c=e.classNames,a=c.item,h=c.button,l=c.highlightedState,u=c.itemSelectable,d=c.placeholder,p=L(t.value),f=document.createElement("div");if(P(f,a),t.labelClass){var m=document.createElement("span");N(m,n,t.label),P(m,t.labelClass),f.appendChild(m)}else N(f,n,t.label);if(f.dataset.item="",f.dataset.id=t.id,f.dataset.value=p,ze(f,t,!0),(t.disabled||this.containerOuter.isDisabled)&&f.setAttribute("aria-disabled","true"),this._isSelectElement&&(f.setAttribute("aria-selected","true"),f.setAttribute("role","option")),t.placeholder&&(P(f,d),f.dataset.placeholder=""),P(f,t.highlighted?l:u),i){t.disabled&&j(f,u),f.dataset.deletable="";var g=document.createElement("button");g.type="button",P(g,h),N(g,!0,x(o,t.value));var v=x(r,t.value);v&&g.setAttribute("aria-label",v),g.dataset.button="",s?f.insertAdjacentElement("afterbegin",g):f.appendChild(g)}return f},choiceList:function(e,t){var i=e.classNames.list,n=document.createElement("div");return P(n,i),t||n.setAttribute("aria-multiselectable","true"),n.setAttribute("role","listbox"),n},choiceGroup:function(e,t){var i=e.allowHTML,n=e.classNames,s=n.group,o=n.groupHeading,r=n.itemDisabled,c=t.id,a=t.label,h=t.disabled,l=L(a),u=document.createElement("div");P(u,s),h&&P(u,r),u.setAttribute("role","group"),u.dataset.group="",u.dataset.id=c,u.dataset.value=l,h&&u.setAttribute("aria-disabled","true");var d=document.createElement("div");return P(d,o),N(d,i,a||""),u.appendChild(d),u},choice:function(e,t,i,n){var s=e.allowHTML,o=e.classNames,r=o.item,c=o.itemChoice,a=o.itemSelectable,h=o.selectedState,l=o.itemDisabled,u=o.description,d=o.placeholder,p=t.label,f=L(t.value),m=document.createElement("div");m.id=t.elementId,P(m,r),P(m,c),n&&"string"==typeof p&&(p=T(s,p),p={trusted:p+=" (".concat(n,")")});var g=m;if(t.labelClass){var v=document.createElement("span");N(v,s,p),P(v,t.labelClass),g=v,m.appendChild(v)}else N(m,s,p);if(t.labelDescription){var _="".concat(t.elementId,"-description");g.setAttribute("aria-describedby",_);var y=document.createElement("span");N(y,s,t.labelDescription),y.id=_,P(y,u),m.appendChild(y)}return t.selected&&P(m,h),t.placeholder&&P(m,d),m.setAttribute("role",t.group?"treeitem":"option"),m.dataset.choice="",m.dataset.id=t.id,m.dataset.value=f,i&&(m.dataset.selectText=i),t.group&&(m.dataset.groupId="".concat(t.group.id)),ze(m,t,!1),t.disabled?(P(m,l),m.dataset.choiceDisabled="",m.setAttribute("aria-disabled","true")):(P(m,a),m.dataset.choiceSelectable=""),m},input:function(e,t){var i=e.classNames,n=i.input,s=i.inputCloned,o=e.labelId,r=document.createElement("input");return r.type="search",P(r,n),P(r,s),r.autocomplete="off",r.autocapitalize="off",r.spellcheck=!1,r.setAttribute("aria-autocomplete","list"),t?r.setAttribute("aria-label",t):o||Je(this._docRoot,this.passedElement.element.id,r),r},dropdown:function(e){var t=e.classNames,i=t.list,n=t.listDropdown,s=document.createElement("div");return P(s,i),P(s,n),s.setAttribute("aria-expanded","false"),s},notice:function(e,t,i){var n=e.classNames,s=n.item,o=n.itemChoice,r=n.addChoice,c=n.noResults,a=n.noChoices,h=n.notice;void 0===i&&(i="");var l=document.createElement("div");switch(N(l,!0,t),P(l,s),P(l,o),P(l,h),i){case ie:P(l,r);break;case te:P(l,c);break;case ee:P(l,a)}return i===ie&&(l.dataset.choiceSelectable="",l.dataset.choice=""),l},option:function(e){var t=L(e.label),i=new Option(t,e.value,!1,e.selected);return ze(i,e,!0),i.disabled=e.disabled,e.selected&&i.setAttribute("selected",""),i}},Qe="-ms-scroll-limit"in document.documentElement.style&&"-ms-ime-align"in document.documentElement.style,Ye={},Ze=function(e){if(e)return e.dataset.id?parseInt(e.dataset.id,10):void 0},et="[data-choice-selectable]";return function(){function e(t,n){void 0===t&&(t="[data-choice]"),void 0===n&&(n={});var s=this;this.initialisedOK=void 0,this._hasNonChoicePlaceholder=!1,this._lastAddedChoiceId=0,this._lastAddedGroupId=0;var o=e.defaults;this.config=i(i(i({},o.allOptions),o.options),n),v.forEach((function(e){s.config[e]=i(i(i({},o.allOptions[e]),o.options[e]),n[e])}));var r=this.config;r.silent||this._validateConfig();var c=r.shadowRoot||document.documentElement;this._docRoot=c;var a="string"==typeof t?c.querySelector(t):t;if(!a||"object"!=typeof a||"INPUT"!==a.tagName&&!z(a)){if(!a&&"string"==typeof t)throw TypeError("Selector ".concat(t," failed to find an element"));throw TypeError("Expected one of the following types text|select-one|select-multiple")}var h=a.type,l="text"===h;(l||1!==r.maxItemCount)&&(r.singleModeForMultiSelect=!1),r.singleModeForMultiSelect&&(h=y);var u=h===_,d=h===y,p=u||d;if(this._elementType=h,this._isTextElement=l,this._isSelectOneElement=u,this._isSelectMultipleElement=d,this._isSelectElement=u||d,this._canAddUserChoices=l&&r.addItems||p&&r.addChoices,"boolean"!=typeof r.renderSelectedChoices&&(r.renderSelectedChoices="always"===r.renderSelectedChoices||u),r.closeDropdownOnSelect="auto"===r.closeDropdownOnSelect?l||u||r.singleModeForMultiSelect:W(r.closeDropdownOnSelect),r.placeholder&&(r.placeholderValue?this._hasNonChoicePlaceholder=!0:a.dataset.placeholder&&(this._hasNonChoicePlaceholder=!0,r.placeholderValue=a.dataset.placeholder)),n.addItemFilter&&"function"!=typeof n.addItemFilter){var f=n.addItemFilter instanceof RegExp?n.addItemFilter:new RegExp(n.addItemFilter);r.addItemFilter=f.test.bind(f)}if(this.passedElement=this._isTextElement?new q({element:a,classNames:r.classNames}):new J({element:a,classNames:r.classNames,template:function(e){return s._templates.option(e)},extractPlaceholder:r.placeholder&&!this._hasNonChoicePlaceholder}),this.initialised=!1,this._store=new Z(r),this._currentValue="",r.searchEnabled=!l&&r.searchEnabled||d,this._canSearch=r.searchEnabled,this._isScrollingOnIe=!1,this._highlightPosition=0,this._wasTap=!0,this._placeholderValue=this._generatePlaceholderValue(),this._baseId=function(e){var t=e.id||e.name&&"".concat(e.name,"-").concat(w(2))||w(4);return t=t.replace(/(:|\.|\[|\]|,)/g,""),"".concat("choices-","-").concat(t)}(a),this._direction=a.dir,!this._direction){var m=window.getComputedStyle(a).direction;m!==window.getComputedStyle(document.documentElement).direction&&(this._direction=m)}if(this._idNames={itemChoice:"item-choice"},this._templates=o.templates,this._render=this._render.bind(this),this._onFocus=this._onFocus.bind(this),this._onBlur=this._onBlur.bind(this),this._onKeyUp=this._onKeyUp.bind(this),this._onKeyDown=this._onKeyDown.bind(this),this._onInput=this._onInput.bind(this),this._onClick=this._onClick.bind(this),this._onTouchMove=this._onTouchMove.bind(this),this._onTouchEnd=this._onTouchEnd.bind(this),this._onMouseDown=this._onMouseDown.bind(this),this._onMouseOver=this._onMouseOver.bind(this),this._onFormReset=this._onFormReset.bind(this),this._onSelectKey=this._onSelectKey.bind(this),this._onEnterKey=this._onEnterKey.bind(this),this._onEscapeKey=this._onEscapeKey.bind(this),this._onDirectionKey=this._onDirectionKey.bind(this),this._onDeleteKey=this._onDeleteKey.bind(this),this.passedElement.isActive)return r.silent||console.warn("Trying to initialise Choices on element already initialised",{element:t}),this.initialised=!0,void(this.initialisedOK=!1);this.init(),this._initialItems=this._store.items.map((function(e){return e.value}))}return Object.defineProperty(e,"defaults",{get:function(){return Object.preventExtensions({get options(){return Ye},get allOptions(){return X},get templates(){return Xe}})},enumerable:!1,configurable:!0}),e.prototype.init=function(){if(!this.initialised&&void 0===this.initialisedOK){this._searcher=new Ge(this.config),this._loadChoices(),this._createTemplates(),this._createElements(),this._createStructure(),this._isTextElement&&!this.config.addItems||this.passedElement.element.hasAttribute("disabled")||this.passedElement.element.closest("fieldset:disabled")?this.disable():(this.enable(),this._addEventListeners()),this._initStore(),this.initialised=!0,this.initialisedOK=!0;var e=this.config.callbackOnInit;"function"==typeof e&&e.call(this)}},e.prototype.destroy=function(){this.initialised&&(this._removeEventListeners(),this.passedElement.reveal(),this.containerOuter.unwrap(this.passedElement.element),this._store._listeners=[],this.clearStore(!1),this._stopSearch(),this._templates=e.defaults.templates,this.initialised=!1,this.initialisedOK=void 0)},e.prototype.enable=function(){return this.passedElement.isDisabled&&this.passedElement.enable(),this.containerOuter.isDisabled&&(this._addEventListeners(),this.input.enable(),this.containerOuter.enable()),this},e.prototype.disable=function(){return this.passedElement.isDisabled||this.passedElement.disable(),this.containerOuter.isDisabled||(this._removeEventListeners(),this.input.disable(),this.containerOuter.disable()),this},e.prototype.highlightItem=function(e,t){if(void 0===t&&(t=!0),!e||!e.id)return this;var i=this._store.items.find((function(t){return t.id===e.id}));return!i||i.highlighted||(this._store.dispatch(S(i,!0)),t&&this.passedElement.triggerEvent(g,this._getChoiceForOutput(i))),this},e.prototype.unhighlightItem=function(e,t){if(void 0===t&&(t=!0),!e||!e.id)return this;var i=this._store.items.find((function(t){return t.id===e.id}));return i&&i.highlighted?(this._store.dispatch(S(i,!1)),t&&this.passedElement.triggerEvent("unhighlightItem",this._getChoiceForOutput(i)),this):this},e.prototype.highlightAll=function(){var e=this;return this._store.withTxn((function(){e._store.items.forEach((function(t){t.highlighted||(e._store.dispatch(S(t,!0)),e.passedElement.triggerEvent(g,e._getChoiceForOutput(t)))}))})),this},e.prototype.unhighlightAll=function(){var e=this;return this._store.withTxn((function(){e._store.items.forEach((function(t){t.highlighted&&(e._store.dispatch(S(t,!1)),e.passedElement.triggerEvent(g,e._getChoiceForOutput(t)))}))})),this},e.prototype.removeActiveItemsByValue=function(e){var t=this;return this._store.withTxn((function(){t._store.items.filter((function(t){return t.value===e})).forEach((function(e){return t._removeItem(e)}))})),this},e.prototype.removeActiveItems=function(e){var t=this;return this._store.withTxn((function(){t._store.items.filter((function(t){return t.id!==e})).forEach((function(e){return t._removeItem(e)}))})),this},e.prototype.removeHighlightedItems=function(e){var t=this;return void 0===e&&(e=!1),this._store.withTxn((function(){t._store.highlightedActiveItems.forEach((function(i){t._removeItem(i),e&&t._triggerChange(i.value)}))})),this},e.prototype.showDropdown=function(e){var t=this;return this.dropdown.isActive||(void 0===e&&(e=!this._canSearch),requestAnimationFrame((function(){t.dropdown.show();var i=t.dropdown.element.getBoundingClientRect();t.containerOuter.open(i.bottom,i.height),e||t.input.focus(),t.passedElement.triggerEvent("showDropdown")}))),this},e.prototype.hideDropdown=function(e){var t=this;return this.dropdown.isActive?(requestAnimationFrame((function(){t.dropdown.hide(),t.containerOuter.close(),!e&&t._canSearch&&(t.input.removeActiveDescendant(),t.input.blur()),t.passedElement.triggerEvent("hideDropdown")})),this):this},e.prototype.getValue=function(e){var t=this,i=this._store.items.map((function(i){return e?i.value:t._getChoiceForOutput(i)}));return this._isSelectOneElement||this.config.singleModeForMultiSelect?i[0]:i},e.prototype.setValue=function(e){var t=this;return this.initialisedOK?(this._store.withTxn((function(){e.forEach((function(e){e&&t._addChoice(G(e,!1))}))})),this._searcher.reset(),this):(this._warnChoicesInitFailed("setValue"),this)},e.prototype.setChoiceByValue=function(e){var t=this;return this.initialisedOK?(this._isTextElement||(this._store.withTxn((function(){(Array.isArray(e)?e:[e]).forEach((function(e){return t._findAndSelectChoiceByValue(e)})),t.unhighlightAll()})),this._searcher.reset()),this):(this._warnChoicesInitFailed("setChoiceByValue"),this)},e.prototype.setChoices=function(e,t,n,s,o,r){var c=this;if(void 0===e&&(e=[]),void 0===t&&(t="value"),void 0===n&&(n="label"),void 0===s&&(s=!1),void 0===o&&(o=!0),void 0===r&&(r=!1),!this.initialisedOK)return this._warnChoicesInitFailed("setChoices"),this;if(!this._isSelectElement)throw new TypeError("setChoices can't be used with INPUT based Choices");if("string"!=typeof t||!t)throw new TypeError("value parameter must be a name of 'value' field in passed objects");if("function"==typeof e){var a=e(this);if("function"==typeof Promise&&a instanceof Promise)return new Promise((function(e){return requestAnimationFrame(e)})).then((function(){return c._handleLoadingState(!0)})).then((function(){return a})).then((function(e){return c.setChoices(e,t,n,s,o,r)})).catch((function(e){c.config.silent||console.error(e)})).then((function(){return c._handleLoadingState(!1)})).then((function(){return c}));if(!Array.isArray(a))throw new TypeError(".setChoices first argument function must return either array of choices or Promise, got: ".concat(typeof a));return this.setChoices(a,t,n,!1)}if(!Array.isArray(e))throw new TypeError(".setChoices must be called either with array of choices with a function resulting into Promise of array of choices");return this.containerOuter.removeLoadingState(),this._store.withTxn((function(){o&&(c._isSearching=!1),s&&c.clearChoices(!0,r);var a="value"===t,h="label"===n;e.forEach((function(e){if("choices"in e){var s=e;h||(s=i(i({},s),{label:s[n]})),c._addGroup(G(s,!0))}else{var o=e;h&&a||(o=i(i({},o),{value:o[t],label:o[n]}));var r=G(o,!1);c._addChoice(r),r.placeholder&&!c._hasNonChoicePlaceholder&&(c._placeholderValue=M(r.label))}})),c.unhighlightAll()})),this._searcher.reset(),this},e.prototype.refresh=function(e,t,i){var n=this;return void 0===e&&(e=!1),void 0===t&&(t=!1),void 0===i&&(i=!1),this._isSelectElement?(this._store.withTxn((function(){var s=n.passedElement.optionsAsChoices(),o={};i||n._store.items.forEach((function(e){e.id&&e.active&&e.selected&&(o[e.value]=!0)})),n.clearStore(!1);var r=function(e){i?n._store.dispatch(C(e)):o[e.value]&&(e.selected=!0)};s.forEach((function(e){"choices"in e?e.choices.forEach(r):r(e)})),n._addPredefinedChoices(s,t,e),n._isSearching&&n._searchChoices(n.input.value)})),this):(this.config.silent||console.warn("refresh method can only be used on choices backed by a <select> element"),this)},e.prototype.removeChoice=function(e){var t=this._store.choices.find((function(t){return t.value===e}));return t?(this._clearNotice(),this._store.dispatch(function(e){return{type:r,choice:e}}(t)),this._searcher.reset(),t.selected&&this.passedElement.triggerEvent(m,this._getChoiceForOutput(t)),this):this},e.prototype.clearChoices=function(e,t){var i=this;return void 0===e&&(e=!0),void 0===t&&(t=!1),e&&(t?this.passedElement.element.replaceChildren(""):this.passedElement.element.querySelectorAll(":not([selected])").forEach((function(e){e.remove()}))),this.itemList.element.replaceChildren(""),this.choiceList.element.replaceChildren(""),this._clearNotice(),this._store.withTxn((function(){var e=t?[]:i._store.items;i._store.reset(),e.forEach((function(e){i._store.dispatch(b(e)),i._store.dispatch(E(e))}))})),this._searcher.reset(),this},e.prototype.clearStore=function(e){return void 0===e&&(e=!0),this.clearChoices(e,!0),this._stopSearch(),this._lastAddedChoiceId=0,this._lastAddedGroupId=0,this},e.prototype.clearInput=function(){return this.input.clear(!this._isSelectOneElement),this._stopSearch(),this},e.prototype._validateConfig=function(){var e,t,i,n=this.config,s=(e=X,t=Object.keys(n).sort(),i=Object.keys(e).sort(),t.filter((function(e){return i.indexOf(e)<0})));s.length&&console.warn("Unknown config option(s) passed",s.join(", ")),n.allowHTML&&n.allowHtmlUserInput&&(n.addItems&&console.warn("Warning: allowHTML/allowHtmlUserInput/addItems all being true is strongly not recommended and may lead to XSS attacks"),n.addChoices&&console.warn("Warning: allowHTML/allowHtmlUserInput/addChoices all being true is strongly not recommended and may lead to XSS attacks"))},e.prototype._render=function(e){void 0===e&&(e={choices:!0,groups:!0,items:!0}),this._store.inTxn()||(this._isSelectElement&&(e.choices||e.groups)&&this._renderChoices(),e.items&&this._renderItems())},e.prototype._renderChoices=function(){var e=this;if(this._canAddItems()){var t=this.config,i=this._isSearching,n=this._store,s=n.activeGroups,o=n.activeChoices,r=0;if(i&&t.searchResultLimit>0?r=t.searchResultLimit:t.renderChoiceLimit>0&&(r=t.renderChoiceLimit),this._isSelectElement){var c=o.filter((function(e){return!e.element}));c.length&&this.passedElement.addOptions(c)}var a=document.createDocumentFragment(),h=function(e){return e.filter((function(e){return!e.placeholder&&(i?!!e.rank:t.renderSelectedChoices||!e.selected)}))},l=!1,u=function(n,s,o){i?n.sort(k):t.shouldSort&&n.sort(t.sorter);var c=n.length;c=!s&&r&&c>r?r:c,c--,n.every((function(n,s){var r=n.choiceEl||e._templates.choice(t,n,t.itemSelectText,o);return n.choiceEl=r,a.appendChild(r),!i&&n.selected||(l=!0),s<c}))};o.length&&(t.resetScrollPosition&&requestAnimationFrame((function(){return e.choiceList.scrollToTop()})),this._hasNonChoicePlaceholder||i||!this._isSelectOneElement||u(o.filter((function(e){return e.placeholder&&!e.group})),!1,void 0),s.length&&!i?(t.shouldSort&&s.sort(t.sorter),u(o.filter((function(e){return!e.placeholder&&!e.group})),!1,void 0),s.forEach((function(n){var s=h(n.choices);if(s.length){if(n.label){var o=n.groupEl||e._templates.choiceGroup(e.config,n);n.groupEl=o,o.remove(),a.appendChild(o)}u(s,!0,t.appendGroupInSearch&&i?n.label:void 0)}}))):u(h(o),!1,void 0)),l||!i&&a.children.length&&t.renderSelectedChoices||(this._notice||(this._notice={text:O(i?t.noResultsText:t.noChoicesText),type:i?te:ee}),a.replaceChildren("")),this._renderNotice(a),this.choiceList.element.replaceChildren(a),l&&this._highlightChoice()}},e.prototype._renderItems=function(){var e=this,t=this._store.items||[],i=this.itemList.element,n=this.config,s=document.createDocumentFragment(),o=function(e){return i.querySelector('[data-item][data-id="'.concat(e.id,'"]'))},r=function(t){var i=t.itemEl;i&&i.parentElement||(i=o(t)||e._templates.item(n,t,n.removeItemButton),t.itemEl=i,s.appendChild(i))};t.forEach(r);var c=!!s.childNodes.length;if(this._isSelectOneElement){var a=i.children.length;if(c||a>1){var h=i.querySelector(D(n.classNames.placeholder));h&&h.remove()}else c||a||!this._placeholderValue||(c=!0,r(G({selected:!0,value:"",label:this._placeholderValue,placeholder:!0},!1)))}c&&(i.append(s),n.shouldSortItems&&!this._isSelectOneElement&&(t.sort(n.sorter),t.forEach((function(e){var t=o(e);t&&(t.remove(),s.append(t))})),i.append(s))),this._isTextElement&&(this.passedElement.value=t.map((function(e){return e.value})).join(n.delimiter))},e.prototype._displayNotice=function(e,t,i){void 0===i&&(i=!0);var n=this._notice;n&&(n.type===t&&n.text===e||n.type===ie&&(t===te||t===ee))?i&&this.showDropdown(!0):(this._clearNotice(),this._notice=e?{text:e,type:t}:void 0,this._renderNotice(),i&&e&&this.showDropdown(!0))},e.prototype._clearNotice=function(){if(this._notice){var e=this.choiceList.element.querySelector(D(this.config.classNames.notice));e&&e.remove(),this._notice=void 0}},e.prototype._renderNotice=function(e){var t=this._notice;if(t){var i=this._templates.notice(this.config,t.text,t.type);e?e.append(i):this.choiceList.prepend(i)}},e.prototype._getChoiceForOutput=function(e,t){return{id:e.id,highlighted:e.highlighted,labelClass:e.labelClass,labelDescription:e.labelDescription,customProperties:e.customProperties,disabled:e.disabled,active:e.active,label:e.label,placeholder:e.placeholder,value:e.value,groupValue:e.group?e.group.label:void 0,element:e.element,keyCode:t}},e.prototype._triggerChange=function(e){null!=e&&this.passedElement.triggerEvent("change",{value:e})},e.prototype._handleButtonAction=function(e){var t=this,i=this._store.items;if(i.length&&this.config.removeItems&&this.config.removeItemButton){var n=e&&Ze(e.parentElement),s=n&&i.find((function(e){return e.id===n}));s&&this._store.withTxn((function(){if(t._removeItem(s),t._triggerChange(s.value),t._isSelectOneElement&&!t._hasNonChoicePlaceholder){var e=(t.config.shouldSort?t._store.choices.reverse():t._store.choices).find((function(e){return e.placeholder}));e&&(t._addItem(e),t.unhighlightAll(),e.value&&t._triggerChange(e.value))}}))}},e.prototype._handleItemAction=function(e,t){var i=this;void 0===t&&(t=!1);var n=this._store.items;if(n.length&&this.config.removeItems&&!this._isSelectOneElement){var s=Ze(e);s&&(n.forEach((function(e){e.id!==s||e.highlighted?!t&&e.highlighted&&i.unhighlightItem(e):i.highlightItem(e)})),this.input.focus())}},e.prototype._handleChoiceAction=function(e){var t=this,i=Ze(e),n=i&&this._store.getChoiceById(i);if(!n||n.disabled)return!1;var s=this.dropdown.isActive;if(!n.selected){if(!this._canAddItems())return!0;this._store.withTxn((function(){t._addItem(n,!0,!0),t.clearInput(),t.unhighlightAll()})),this._triggerChange(n.value)}return s&&this.config.closeDropdownOnSelect&&(this.hideDropdown(!0),this.containerOuter.element.focus()),!0},e.prototype._handleBackspace=function(e){var t=this.config;if(t.removeItems&&e.length){var i=e[e.length-1],n=e.some((function(e){return e.highlighted}));t.editItems&&!n&&i?(this.input.value=i.value,this.input.setWidth(),this._removeItem(i),this._triggerChange(i.value)):(n||this.highlightItem(i,!1),this.removeHighlightedItems(!0))}},e.prototype._loadChoices=function(){var e,t=this,i=this.config;if(this._isTextElement){if(this._presetChoices=i.items.map((function(e){return G(e,!1)})),this.passedElement.value){var n=this.passedElement.value.split(i.delimiter).map((function(e){return G(e,!1,t.config.allowHtmlUserInput)}));this._presetChoices=this._presetChoices.concat(n)}this._presetChoices.forEach((function(e){e.selected=!0}))}else if(this._isSelectElement){this._presetChoices=i.choices.map((function(e){return G(e,!0)}));var s=this.passedElement.optionsAsChoices();s&&(e=this._presetChoices).push.apply(e,s)}},e.prototype._handleLoadingState=function(e){void 0===e&&(e=!0);var t=this.itemList.element;e?(this.disable(),this.containerOuter.addLoadingState(),this._isSelectOneElement?t.replaceChildren(this._templates.placeholder(this.config,this.config.loadingText)):this.input.placeholder=this.config.loadingText):(this.enable(),this.containerOuter.removeLoadingState(),this._isSelectOneElement?(t.replaceChildren(""),this._render()):this.input.placeholder=this._placeholderValue||"")},e.prototype._handleSearch=function(e){if(this.input.isFocussed)if(null!=e&&e.length>=this.config.searchFloor){var t=this.config.searchChoices?this._searchChoices(e):0;null!==t&&this.passedElement.triggerEvent(f,{value:e,resultCount:t})}else this._store.choices.some((function(e){return!e.active}))&&this._stopSearch()},e.prototype._canAddItems=function(){var e=this.config,t=e.maxItemCount,i=e.maxItemText;return!e.singleModeForMultiSelect&&t>0&&t<=this._store.items.length?(this.choiceList.element.replaceChildren(""),this._notice=void 0,this._displayNotice("function"==typeof i?i(t):i,ie),!1):(this._notice&&this._notice.type===ie&&this._clearNotice(),!0)},e.prototype._canCreateItem=function(e){var t=this.config,i=!0,n="";if(i&&"function"==typeof t.addItemFilter&&!t.addItemFilter(e)&&(i=!1,n=x(t.customAddItemText,e)),i&&this._store.choices.find((function(i){return t.valueComparer(i.value,e)}))){if(this._isSelectElement)return this._displayNotice("",ie),!1;t.duplicateItemsAllowed||(i=!1,n=x(t.uniqueItemText,e))}return i&&(n=x(t.addItemText,e)),n&&this._displayNotice(n,ie),i},e.prototype._searchChoices=function(e){var t=e.trim().replace(/\s{2,}/," ");if(!t.length||t===this._currentValue)return null;var i=this._searcher;i.isEmptyIndex()&&i.index(this._store.searchableChoices);var n=i.search(t);this._currentValue=t,this._highlightPosition=0,this._isSearching=!0;var s=this._notice;return(s&&s.type)!==ie&&(n.length?this._clearNotice():this._displayNotice(O(this.config.noResultsText),te)),this._store.dispatch(function(e){return{type:c,results:e}}(n)),n.length},e.prototype._stopSearch=function(){this._isSearching&&(this._currentValue="",this._isSearching=!1,this._clearNotice(),this._store.dispatch({type:a,active:!0}),this.passedElement.triggerEvent(f,{value:"",resultCount:0}))},e.prototype._addEventListeners=function(){var e=this._docRoot,t=this.containerOuter.element,i=this.input.element;e.addEventListener("touchend",this._onTouchEnd,!0),t.addEventListener("keydown",this._onKeyDown,!0),t.addEventListener("mousedown",this._onMouseDown,!0),e.addEventListener("click",this._onClick,{passive:!0}),e.addEventListener("touchmove",this._onTouchMove,{passive:!0}),this.dropdown.element.addEventListener("mouseover",this._onMouseOver,{passive:!0}),this._isSelectOneElement&&(t.addEventListener("focus",this._onFocus,{passive:!0}),t.addEventListener("blur",this._onBlur,{passive:!0})),i.addEventListener("keyup",this._onKeyUp,{passive:!0}),i.addEventListener("input",this._onInput,{passive:!0}),i.addEventListener("focus",this._onFocus,{passive:!0}),i.addEventListener("blur",this._onBlur,{passive:!0}),i.form&&i.form.addEventListener("reset",this._onFormReset,{passive:!0}),this.input.addEventListeners()},e.prototype._removeEventListeners=function(){var e=this._docRoot,t=this.containerOuter.element,i=this.input.element;e.removeEventListener("touchend",this._onTouchEnd,!0),t.removeEventListener("keydown",this._onKeyDown,!0),t.removeEventListener("mousedown",this._onMouseDown,!0),e.removeEventListener("click",this._onClick),e.removeEventListener("touchmove",this._onTouchMove),this.dropdown.element.removeEventListener("mouseover",this._onMouseOver),this._isSelectOneElement&&(t.removeEventListener("focus",this._onFocus),t.removeEventListener("blur",this._onBlur)),i.removeEventListener("keyup",this._onKeyUp),i.removeEventListener("input",this._onInput),i.removeEventListener("focus",this._onFocus),i.removeEventListener("blur",this._onBlur),i.form&&i.form.removeEventListener("reset",this._onFormReset),this.input.removeEventListeners()},e.prototype._onKeyDown=function(e){var t=e.keyCode,i=this.dropdown.isActive,n=1===e.key.length||2===e.key.length&&e.key.charCodeAt(0)>=55296||"Unidentified"===e.key;switch(this._isTextElement||i||27===t||9===t||16===t||(this.showDropdown(),!this.input.isFocussed&&n&&(this.input.value+=e.key," "===e.key&&e.preventDefault())),t){case 65:return this._onSelectKey(e,this.itemList.element.hasChildNodes());case 13:return this._onEnterKey(e,i);case 27:return this._onEscapeKey(e,i);case 38:case 33:case 40:case 34:return this._onDirectionKey(e,i);case 8:case 46:return this._onDeleteKey(e,this._store.items,this.input.isFocussed)}},e.prototype._onKeyUp=function(){this._canSearch=this.config.searchEnabled},e.prototype._onInput=function(){var e=this.input.value;e?this._canAddItems()&&(this._canSearch&&this._handleSearch(e),this._canAddUserChoices&&(this._canCreateItem(e),this._isSelectElement&&(this._highlightPosition=0,this._highlightChoice()))):this._isTextElement?this.hideDropdown(!0):this._stopSearch()},e.prototype._onSelectKey=function(e,t){(e.ctrlKey||e.metaKey)&&t&&(this._canSearch=!1,this.config.removeItems&&!this.input.value&&this.input.element===document.activeElement&&this.highlightAll())},e.prototype._onEnterKey=function(e,t){var i=this,n=this.input.value,s=e.target;if(e.preventDefault(),s&&s.hasAttribute("data-button"))this._handleButtonAction(s);else if(t){var o=this.dropdown.element.querySelector(D(this.config.classNames.highlightedState));if(!o||!this._handleChoiceAction(o))if(s&&n){if(this._canAddItems()){var r=!1;this._store.withTxn((function(){if(!(r=i._findAndSelectChoiceByValue(n,!0))){if(!i._canAddUserChoices)return;if(!i._canCreateItem(n))return;i._addChoice(G(n,!1,i.config.allowHtmlUserInput),!0,!0),r=!0}i.clearInput(),i.unhighlightAll()})),r&&(this._triggerChange(n),this.config.closeDropdownOnSelect&&this.hideDropdown(!0))}}else this.hideDropdown(!0)}else(this._isSelectElement||this._notice)&&this.showDropdown()},e.prototype._onEscapeKey=function(e,t){t&&(e.stopPropagation(),this.hideDropdown(!0),this._stopSearch(),this.containerOuter.element.focus())},e.prototype._onDirectionKey=function(e,t){var i,n,s,o=e.keyCode;if(t||this._isSelectOneElement){this.showDropdown(),this._canSearch=!1;var r=40===o||34===o?1:-1,c=void 0;if(e.metaKey||34===o||33===o)c=this.dropdown.element.querySelector(r>0?"".concat(et,":last-of-type"):et);else{var a=this.dropdown.element.querySelector(D(this.config.classNames.highlightedState));c=a?function(e,t,i){void 0===i&&(i=1);for(var n="".concat(i>0?"next":"previous","ElementSibling"),s=e[n];s;){if(s.matches(t))return s;s=s[n]}return null}(a,et,r):this.dropdown.element.querySelector(et)}c&&(i=c,n=this.choiceList.element,void 0===(s=r)&&(s=1),(s>0?n.scrollTop+n.offsetHeight>=i.offsetTop+i.offsetHeight:i.offsetTop>=n.scrollTop)||this.choiceList.scrollToChildElement(c,r),this._highlightChoice(c)),e.preventDefault()}},e.prototype._onDeleteKey=function(e,t,i){this._isSelectOneElement||e.target.value||!i||(this._handleBackspace(t),e.preventDefault())},e.prototype._onTouchMove=function(){this._wasTap&&(this._wasTap=!1)},e.prototype._onTouchEnd=function(e){var t=(e||e.touches[0]).target;this._wasTap&&this.containerOuter.element.contains(t)&&((t===this.containerOuter.element||t===this.containerInner.element)&&(this._isTextElement?this.input.focus():this._isSelectMultipleElement&&this.showDropdown()),e.stopPropagation()),this._wasTap=!0},e.prototype._onMouseDown=function(e){var t=e.target;if(t instanceof HTMLElement){if(Qe&&this.choiceList.element.contains(t)){var i=this.choiceList.element.firstElementChild;this._isScrollingOnIe="ltr"===this._direction?e.offsetX>=i.offsetWidth:e.offsetX<i.offsetLeft}if(t!==this.input.element){var n=t.closest("[data-button],[data-item],[data-choice]");n instanceof HTMLElement&&("button"in n.dataset?this._handleButtonAction(n):"item"in n.dataset?this._handleItemAction(n,e.shiftKey):"choice"in n.dataset&&this._handleChoiceAction(n)),e.preventDefault()}}},e.prototype._onMouseOver=function(e){var t=e.target;t instanceof HTMLElement&&"choice"in t.dataset&&this._highlightChoice(t)},e.prototype._onClick=function(e){var t=e.target,i=this.containerOuter;i.element.contains(t)?this.dropdown.isActive||i.isDisabled?this._isSelectOneElement&&t!==this.input.element&&!this.dropdown.element.contains(t)&&this.hideDropdown():this._isTextElement?document.activeElement!==this.input.element&&this.input.focus():(this.showDropdown(),i.element.focus()):(i.removeFocusState(),this.hideDropdown(!0),this.unhighlightAll())},e.prototype._onFocus=function(e){var t=e.target,i=this.containerOuter;if(t&&i.element.contains(t)){var n=t===this.input.element;this._isTextElement?n&&i.addFocusState():this._isSelectMultipleElement?n&&(this.showDropdown(!0),i.addFocusState()):(i.addFocusState(),n&&this.showDropdown(!0))}},e.prototype._onBlur=function(e){var t=e.target,i=this.containerOuter;t&&i.element.contains(t)&&!this._isScrollingOnIe?t===this.input.element?(i.removeFocusState(),this.hideDropdown(!0),(this._isTextElement||this._isSelectMultipleElement)&&this.unhighlightAll()):t===this.containerOuter.element&&(i.removeFocusState(),this._canSearch||this.hideDropdown(!0)):(this._isScrollingOnIe=!1,this.input.element.focus())},e.prototype._onFormReset=function(){var e=this;this._store.withTxn((function(){e.clearInput(),e.hideDropdown(),e.refresh(!1,!1,!0),e._initialItems.length&&e.setChoiceByValue(e._initialItems)}))},e.prototype._highlightChoice=function(e){void 0===e&&(e=null);var t=Array.from(this.dropdown.element.querySelectorAll(et));if(t.length){var i=e,n=this.config.classNames.highlightedState;Array.from(this.dropdown.element.querySelectorAll(D(n))).forEach((function(e){j(e,n),e.setAttribute("aria-selected","false")})),i?this._highlightPosition=t.indexOf(i):(i=t.length>this._highlightPosition?t[this._highlightPosition]:t[t.length-1])||(i=t[0]),P(i,n),i.setAttribute("aria-selected","true"),this.passedElement.triggerEvent("highlightChoice",{el:i}),this.dropdown.isActive&&(this.input.setActiveDescendant(i.id),this.containerOuter.setActiveDescendant(i.id))}},e.prototype._addItem=function(e,t,i){if(void 0===t&&(t=!0),void 0===i&&(i=!1),!e.id)throw new TypeError("item.id must be set before _addItem is called for a choice/item");(this.config.singleModeForMultiSelect||this._isSelectOneElement)&&this.removeActiveItems(e.id),this._store.dispatch(E(e)),t&&(this.passedElement.triggerEvent("addItem",this._getChoiceForOutput(e)),i&&this.passedElement.triggerEvent("choice",this._getChoiceForOutput(e)))},e.prototype._removeItem=function(e){if(e.id){this._store.dispatch(C(e));var t=this._notice;t&&t.type===ee&&this._clearNotice(),this.passedElement.triggerEvent(m,this._getChoiceForOutput(e))}},e.prototype._addChoice=function(e,t,i){if(void 0===t&&(t=!0),void 0===i&&(i=!1),e.id)throw new TypeError("Can not re-add a choice which has already been added");var n=this.config;if(n.duplicateItemsAllowed||!this._store.choices.find((function(t){return n.valueComparer(t.value,e.value)}))){this._lastAddedChoiceId++,e.id=this._lastAddedChoiceId,e.elementId="".concat(this._baseId,"-").concat(this._idNames.itemChoice,"-").concat(e.id);var s=n.prependValue,o=n.appendValue;s&&(e.value=s+e.value),o&&(e.value+=o.toString()),(s||o)&&e.element&&(e.element.value=e.value),this._clearNotice(),this._store.dispatch(b(e)),e.selected&&this._addItem(e,t,i)}},e.prototype._addGroup=function(e,t){var i=this;if(void 0===t&&(t=!0),e.id)throw new TypeError("Can not re-add a group which has already been added");this._store.dispatch(function(e){return{type:l,group:e}}(e)),e.choices&&(this._lastAddedGroupId++,e.id=this._lastAddedGroupId,e.choices.forEach((function(n){n.group=e,e.disabled&&(n.disabled=!0),i._addChoice(n,t)})))},e.prototype._createTemplates=function(){var e=this,t=this.config.callbackOnCreateTemplates,i={};"function"==typeof t&&(i=t.call(this,A,T,F));var n={};Object.keys(this._templates).forEach((function(t){n[t]=t in i?i[t].bind(e):e._templates[t].bind(e)})),this._templates=n},e.prototype._createElements=function(){var e=this._templates,t=this.config,i=this._isSelectOneElement,n=t.position,s=t.classNames,o=this._elementType;this.containerOuter=new V({element:e.containerOuter(t,this._direction,this._isSelectElement,i,t.searchEnabled,o,t.labelId),classNames:s,type:o,position:n}),this.containerInner=new V({element:e.containerInner(t),classNames:s,type:o,position:n}),this.input=new B({element:e.input(t,this._placeholderValue),classNames:s,type:o,preventPaste:!t.paste}),this.choiceList=new H({element:e.choiceList(t,i)}),this.itemList=new H({element:e.itemList(t,i)}),this.dropdown=new K({element:e.dropdown(t),classNames:s,type:o})},e.prototype._createStructure=function(){var e=this,t=e.containerInner,i=e.containerOuter,n=e.passedElement,s=this.dropdown.element;n.conceal(),t.wrap(n.element),i.wrap(t.element),this._isSelectOneElement?this.input.placeholder=this.config.searchPlaceholderValue||"":(this._placeholderValue&&(this.input.placeholder=this._placeholderValue),this.input.setWidth()),i.element.appendChild(t.element),i.element.appendChild(s),t.element.appendChild(this.itemList.element),s.appendChild(this.choiceList.element),this._isSelectOneElement?this.config.searchEnabled&&s.insertBefore(this.input.element,s.firstChild):t.element.appendChild(this.input.element),this._highlightPosition=0,this._isSearching=!1},e.prototype._initStore=function(){var e=this;this._store.subscribe(this._render).withTxn((function(){e._addPredefinedChoices(e._presetChoices,e._isSelectOneElement&&!e._hasNonChoicePlaceholder,!1)})),(!this._store.choices.length||this._isSelectOneElement&&this._hasNonChoicePlaceholder)&&this._render()},e.prototype._addPredefinedChoices=function(e,t,i){var n=this;void 0===t&&(t=!1),void 0===i&&(i=!0),t&&-1===e.findIndex((function(e){return e.selected}))&&e.some((function(e){return!e.disabled&&!("choices"in e)&&(e.selected=!0,!0)})),e.forEach((function(e){"choices"in e?n._isSelectElement&&n._addGroup(e,i):n._addChoice(e,i)}))},e.prototype._findAndSelectChoiceByValue=function(e,t){var i=this;void 0===t&&(t=!1);var n=this._store.choices.find((function(t){return i.config.valueComparer(t.value,e)}));return!(!n||n.disabled||n.selected||(this._addItem(n,!0,t),0))},e.prototype._generatePlaceholderValue=function(){var e=this.config;if(!e.placeholder)return null;if(this._hasNonChoicePlaceholder)return e.placeholderValue;if(this._isSelectElement){var t=this.passedElement.placeholderOption;return t?t.text:null}return null},e.prototype._warnChoicesInitFailed=function(e){if(!this.config.silent){if(!this.initialised)throw new TypeError("".concat(e," called on a non-initialised instance of Choices"));if(!this.initialisedOK)throw new TypeError("".concat(e," called for an element which has multiple instances of Choices initialised on it"))}},e.version="11.1.0",e}()}));
+    </script>
+
+    <style type="text/css">
+
+        .choices {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 24px;
+            font-size: 16px
+        }
+
+            .choices:focus {
+                outline: 0
+            }
+
+            .choices:last-child {
+                margin-bottom: 0
+            }
+
+            .choices.is-open {
+                overflow: visible
+            }
+
+            .choices.is-disabled .choices__inner, .choices.is-disabled .choices__input {
+                background-color: #eaeaea;
+                cursor: not-allowed;
+                -webkit-user-select: none;
+                user-select: none
+            }
+
+            .choices.is-disabled .choices__item {
+                cursor: not-allowed
+            }
+
+            .choices [hidden] {
+                display: none !important
+            }
+
+            .choices[data-type*=select-one] {
+                cursor: pointer
+            }
+
+                .choices[data-type*=select-one] .choices__inner {
+                    padding-bottom: 7.5px
+                }
+
+                .choices[data-type*=select-one] .choices__input {
+                    display: block;
+                    width: 100%;
+                    padding: 10px;
+                    border-bottom: 1px solid #ddd;
+                    background-color: #fff;
+                    margin: 0
+                }
+
+                .choices[data-type*=select-one] .choices__button {
+                    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAyMSAyMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yLjU5Mi4wNDRsMTguMzY0IDE4LjM2NC0yLjU0OCAyLjU0OEwuMDQ0IDIuNTkyeiIvPjxwYXRoIGQ9Ik0wIDE4LjM2NEwxOC4zNjQgMGwyLjU0OCAyLjU0OEwyLjU0OCAyMC45MTJ6Ii8+PC9nPjwvc3ZnPg==);
+                    padding: 0;
+                    background-size: 8px;
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    margin-top: -10px;
+                    margin-right: 25px;
+                    height: 20px;
+                    width: 20px;
+                    border-radius: 10em;
+                    opacity: .25
+                }
+
+                    .choices[data-type*=select-one] .choices__button:focus, .choices[data-type*=select-one] .choices__button:hover {
+                        opacity: 1
+                    }
+
+                    .choices[data-type*=select-one] .choices__button:focus {
+                        box-shadow: 0 0 0 2px #005f75
+                    }
+
+                .choices[data-type*=select-one] .choices__item[data-placeholder] .choices__button {
+                    display: none
+                }
+
+                .choices[data-type*=select-one]::after {
+                    content: "";
+                    height: 0;
+                    width: 0;
+                    border-style: solid;
+                    border-color: #333 transparent transparent;
+                    border-width: 5px;
+                    position: absolute;
+                    right: 11.5px;
+                    top: 50%;
+                    margin-top: -2.5px;
+                    pointer-events: none
+                }
+
+                .choices[data-type*=select-one].is-open::after {
+                    border-color: transparent transparent #333;
+                    margin-top: -7.5px
+                }
+
+                .choices[data-type*=select-one][dir=rtl]::after {
+                    left: 11.5px;
+                    right: auto
+                }
+
+                .choices[data-type*=select-one][dir=rtl] .choices__button {
+                    right: auto;
+                    left: 0;
+                    margin-left: 25px;
+                    margin-right: 0
+                }
+
+            .choices[data-type*=select-multiple] .choices__inner, .choices[data-type*=text] .choices__inner {
+                cursor: text
+            }
+
+            .choices[data-type*=select-multiple] .choices__button, .choices[data-type*=text] .choices__button {
+                position: relative;
+                display: inline-block;
+                margin: 0-4px 0 8px;
+                padding-left: 16px;
+                border-left: 1px solid #003642;
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAyMSAyMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yLjU5Mi4wNDRsMTguMzY0IDE4LjM2NC0yLjU0OCAyLjU0OEwuMDQ0IDIuNTkyeiIvPjxwYXRoIGQ9Ik0wIDE4LjM2NEwxOC4zNjQgMGwyLjU0OCAyLjU0OEwyLjU0OCAyMC45MTJ6Ii8+PC9nPjwvc3ZnPg==);
+                background-size: 8px;
+                width: 8px;
+                line-height: 1;
+                opacity: .75;
+                border-radius: 0
+            }
+
+                .choices[data-type*=select-multiple] .choices__button:focus, .choices[data-type*=select-multiple] .choices__button:hover, .choices[data-type*=text] .choices__button:focus, .choices[data-type*=text] .choices__button:hover {
+                    opacity: 1
+                }
+
+        .choices__inner {
+            display: inline-block;
+            vertical-align: top;
+            width: 100%;
+            background-color: #f9f9f9;
+            padding: 7.5px 7.5px 3.75px;
+            border: 1px solid #ddd;
+            border-radius: 2.5px;
+            font-size: 14px;
+            min-height: 44px;
+            overflow: hidden
+        }
+
+        .is-focused .choices__inner, .is-open .choices__inner {
+            border-color: #b7b7b7
+        }
+
+        .is-open .choices__inner {
+            border-radius: 2.5px 2.5px 0 0
+        }
+
+        .is-flipped.is-open .choices__inner {
+            border-radius: 0 0 2.5px 2.5px
+        }
+
+        .choices__list {
+            margin: 0;
+            padding-left: 0;
+            list-style: none
+        }
+
+        .choices__list--single {
+            display: inline-block;
+            padding: 4px 16px 4px 4px;
+            width: 100%
+        }
+
+        [dir=rtl] .choices__list--single {
+            padding-right: 4px;
+            padding-left: 16px
+        }
+
+        .choices__list--single .choices__item {
+            width: 100%
+        }
+
+        .choices__list--multiple {
+            display: inline
+        }
+
+            .choices__list--multiple .choices__item {
+                display: inline-block;
+                vertical-align: middle;
+                border-radius: 20px;
+                padding: 4px 10px;
+                font-size: 12px;
+                font-weight: 500;
+                margin-right: 3.75px;
+                margin-bottom: 3.75px;
+                background-color: #005f75;
+                border: 1px solid #004a5c;
+                color: #fff;
+                word-break: break-all;
+                box-sizing: border-box
+            }
+
+                .choices__list--multiple .choices__item[data-deletable] {
+                    padding-right: 5px
+                }
+
+        [dir=rtl] .choices__list--multiple .choices__item {
+            margin-right: 0;
+            margin-left: 3.75px
+        }
+
+        .choices__list--multiple .choices__item.is-highlighted {
+            background-color: #004a5c;
+            border: 1px solid #003642
+        }
+
+        .is-disabled .choices__list--multiple .choices__item {
+            background-color: #aaa;
+            border: 1px solid #919191
+        }
+
+        .choices__list--dropdown, .choices__list[aria-expanded] {
+            display: none;
+            z-index: 1;
+            position: absolute;
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            top: 100%;
+            margin-top: -1px;
+            border-bottom-left-radius: 2.5px;
+            border-bottom-right-radius: 2.5px;
+            overflow: hidden;
+            word-break: break-all
+        }
+
+        .is-active.choices__list--dropdown, .is-active.choices__list[aria-expanded] {
+            display: block
+        }
+
+        .is-open .choices__list--dropdown, .is-open .choices__list[aria-expanded] {
+            border-color: #b7b7b7
+        }
+
+        .is-flipped .choices__list--dropdown, .is-flipped .choices__list[aria-expanded] {
+            top: auto;
+            bottom: 100%;
+            margin-top: 0;
+            margin-bottom: -1px;
+            border-radius: .25rem .25rem 0 0
+        }
+
+        .choices__list--dropdown .choices__list, .choices__list[aria-expanded] .choices__list {
+            position: relative;
+            max-height: 300px;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+            will-change: scroll-position
+        }
+
+        .choices__list--dropdown .choices__item, .choices__list[aria-expanded] .choices__item {
+            position: relative;
+            padding: 10px;
+            font-size: 14px
+        }
+
+        [dir=rtl] .choices__list--dropdown .choices__item, [dir=rtl] .choices__list[aria-expanded] .choices__item {
+            text-align: right
+        }
+
+        @media (min-width:640px) {
+            .choices__list--dropdown .choices__item--selectable[data-select-text], .choices__list[aria-expanded] .choices__item--selectable[data-select-text] {
+                padding-right: 100px
+            }
+
+                .choices__list--dropdown .choices__item--selectable[data-select-text]::after, .choices__list[aria-expanded] .choices__item--selectable[data-select-text]::after {
+                    content: attr(data-select-text);
+                    font-size: 12px;
+                    opacity: 0;
+                    position: absolute;
+                    right: 10px;
+                    top: 50%;
+                    transform: translateY(-50%)
+                }
+
+            [dir=rtl] .choices__list--dropdown .choices__item--selectable[data-select-text], [dir=rtl] .choices__list[aria-expanded] .choices__item--selectable[data-select-text] {
+                text-align: right;
+                padding-left: 100px;
+                padding-right: 10px
+            }
+
+                [dir=rtl] .choices__list--dropdown .choices__item--selectable[data-select-text]::after, [dir=rtl] .choices__list[aria-expanded] .choices__item--selectable[data-select-text]::after {
+                    right: auto;
+                    left: 10px
+                }
+        }
+
+        .choices__list--dropdown .choices__item--selectable.is-highlighted, .choices__list[aria-expanded] .choices__item--selectable.is-highlighted {
+            background-color: #f2f2f2
+        }
+
+            .choices__list--dropdown .choices__item--selectable.is-highlighted::after, .choices__list[aria-expanded] .choices__item--selectable.is-highlighted::after {
+                opacity: .5
+            }
+
+        .choices__item {
+            cursor: default
+        }
+
+        .choices__item--selectable {
+            cursor: pointer
+        }
+
+        .choices__item--disabled {
+            cursor: not-allowed;
+            -webkit-user-select: none;
+            user-select: none;
+            opacity: .5
+        }
+
+        .choices__heading {
+            font-weight: 600;
+            font-size: 12px;
+            padding: 10px;
+            border-bottom: 1px solid #f7f7f7;
+            color: gray
+        }
+
+        .choices__button {
+            text-indent: -9999px;
+            appearance: none;
+            border: 0;
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer
+        }
+
+            .choices__button:focus, .choices__input:focus {
+                outline: 0
+            }
+
+        .choices__input {
+            display: inline-block;
+            vertical-align: baseline;
+            background-color: #f9f9f9;
+            font-size: 14px;
+            margin-bottom: 5px;
+            border: 0;
+            border-radius: 0;
+            max-width: 100%;
+            padding: 4px 0 4px 2px
+        }
+
+            .choices__input::-webkit-search-cancel-button, .choices__input::-webkit-search-decoration, .choices__input::-webkit-search-results-button, .choices__input::-webkit-search-results-decoration {
+                display: none
+            }
+
+            .choices__input::-ms-clear, .choices__input::-ms-reveal {
+                display: none;
+                width: 0;
+                height: 0
+            }
+
+        [dir=rtl] .choices__input {
+            padding-right: 2px;
+            padding-left: 0
+        }
+
+        .choices__placeholder {
+            opacity: .5
+        }
+    </style>
+
+
+
+    <style>
+        body {
+            background: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            font-weight: 600;
+            color: #1a237e;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: #e8eaf6;
+            font-size: 1rem;
+            font-weight: 400;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Cpolygon points='0,0 10,0 5,6' fill='%235c6bc0'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            background-size: 10px;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+
+            select:focus {
+                border-color: #3949ab;
+                box-shadow: 0 0 5px rgba(57,73,171,0.3);
+                outline: none;
+            }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(135deg, #3949ab, #283593);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+            button:hover {
+                background: linear-gradient(135deg, #303f9f, #1a237e);
+            }
+
+        #result h2 {
+            color: #1a237e;
+            margin-top: 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #result ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #result li {
+            background: #e3f2fd;
+            border-left: 4px solid #1e88e5;
+            margin-bottom: 10px;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        #result p {
+            font-style: italic;
+            text-align: center;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            margin-left: 8px;
+        }
+
+        .tooltip-icon {
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.5em;
+            height: 1.5em;
+            border-radius: 50%;
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            font-size: 1em;
+            cursor: default;
+            user-select: none;
+        }
+
+        .tooltip .tooltiptext {
+            width: 40em;
+            height: 40em;
+            background-color: white;
+            color: #0a214f;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.25em;
+            padding: 1em;
+            white-space: normal;
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            z-index: 9999;
+            top: 50%;
+            left: calc(100% + 10px);
+            transform: translateY(-50%);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+        }
+
+            .tooltip .tooltiptext.show {
+                visibility: visible;
+                opacity: 1;
+            }
+
+        .tooltiptext img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .tooltiptext p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* SW Section (radios styled like inline options) */
+        .sw-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .sw-col {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .sw-opt {
+            background: transparent;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 8px 10px;
+            cursor: pointer;
+        }
+
+            .sw-opt input {
+                margin-right: 6px;
+                transform: translateY(1px);
+            }
+
+
+        .choices__item
+        {
+            background-color: none;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Reservoir Modeller Questionnaire</h1>
+
+    <!-- 1: Grid Design -->
+    <div class="section">
+        <h2>1. Grid Design</h2>
+        <label for="fieldTypeGrid">Field Type<div class="tooltip"><div class="tooltip-icon">?</div><div class="tooltiptext"><div style="display:flex;flex-direction:column;align-items:center;"><img src="https://via.placeholder.com/200x150.png?text=Example+Image" alt="Tooltip Example"><p>Brownfield vs. Greenfield.</p></div></div></div></label>
+        <select id="fieldTypeGrid" multiple>
+            <option value="">--Select--</option>
+            <option value="Brown">Brownfield</option>
+            <option value="Green">Greenfield</option>
+        </select>
+        <label for="dataAvail">Data Availability<div class="tooltip"><div class="tooltip-icon">?</div><div class="tooltiptext"><div style="display:flex;flex-direction:column;align-items:center;"><img src="https://via.placeholder.com/200x150.png?text=Example+Image" alt="Tooltip Example"><p>High vs. medium vs. low data coverage.</p></div></div></div></label>
+        <select id="dataAvail" multiple>
+            <option value="">--Select--</option>
+            <option value="High">High (≥1 well/km²; logs ≥80%; cores ≥30%; 3D seismic; analogs)</option>
+            <option value="Medium">Medium (1–4 km² spacing; logs ≥50%; cores 10–30%; limited seismic; analog)</option>
+            <option value="Low">Low (&lt;1 well/4 km²; logs &lt;50%; cores &lt;10%; no seismic; analogs)</option>
+        </select>
+        <label for="structComp">Structural Complexity<div class="tooltip"><div class="tooltip-icon">?</div><div class="tooltiptext"><div style="display:flex;flex-direction:column;align-items:center;"><img src="https://via.placeholder.com/200x150.png?text=Example+Image" alt="Tooltip Example"><p>High faulting vs. gentle structures.</p></div></div></div></label>
+        <select id="structComp" multiple>
+            <option value="">--Select--</option>
+            <option value="High">High</option>
+            <option value="Low">Low</option>
+        </select>
+        <div id="regionDiv" style="display:none;">
+            <label for="region">Region Count<div class="tooltip"><div class="tooltip-icon">?</div><div class="tooltiptext"><div style="display:flex;flex-direction:column;align-items:center;"><img src="https://via.placeholder.com/200x150.png?text=Example+Image" alt="Tooltip Example"><p>Many vs. few segments.</p></div></div></div></label>
+            <select id="region" multiple>
+                <option value="">--Select--</option>
+                <option value="Many">Many</option>
+                <option value="Few">Few</option>
+            </select>
+        </div>
+        <label for="projGridType">Project Type<div class="tooltip"><div class="tooltip-icon">?</div><div class="tooltiptext"><div style="display:flex;flex-direction:column;align-items:center;"><img src="https://via.placeholder.com/200x150.png?text=Example+Image" alt="Tooltip Example"><p>EOR, Waterflood, Dev/Infill, CCS, FDP, Exploration.</p></div></div></div></label>
+        <select id="projGridType" multiple>
+            <option value="">--Select--</option>
+            <optgroup label="Brownfield"><option value="EOR">EOR</option><option value="WaterDisp">Waterflood</option><option value="DevInfill">Dev/Infill</option><option value="CCS">CCS</option></optgroup>
+            <optgroup label="Greenfield"><option value="FDP">FDP</option><option value="Exploration">Exploration</option><option value="CCS">CCS</option></optgroup>
+        </select>
+    </div>
+
+
+    <!-- 2: Grid Orientation --><!-- 2: Grid Orientation -->
+    <div class="section">
+        <h2>2. Grid Orientation</h2>
+        <label for="gridOrient">Design grid orientation from main structural trend and major flow direction<div class="tooltip"><div class="tooltip-icon">?</div><div class="tooltiptext"><div style="display:flex;flex-direction:column;align-items:center;"><img src="https://via.placeholder.com/200x150.png?text=Example+Image" alt="Tooltip Example"><p>Major structural trend and main flow direction.</p></div></div></div></label>
+
+        <!-- GO-1 -->
+        <div id="go1Div">
+            <label for="go1Faults">Are major faults/compartments the primary control on connectivity?</label>
+            <select id="go1Faults">
+                <option value="">--Select--</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <!-- GO-2 -->
+        <div id="go2Div" style="display:none;">
+            <label for="go2MultiFaults">Multiple/curved faults?</label>
+            <select id="go2MultiFaults">
+                <option value="">--Select--</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <!-- GO-3 -->
+        <div id="go3Div" style="display:none;">
+            <label for="go3DepoKnown">Is a depositional / paleo-transport direction identifiable?</label>
+            <select id="go3DepoKnown">
+                <option value="">--Select--</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <!-- GO-3a -->
+        <div id="go3aDiv" style="display:none;">
+            <label for="go3DepoType">Depositional type</label>
+            <select id="go3DepoType">
+                <option value="">--Select--</option>
+                <option value="Channel">Channel / Distributary / Longshore</option>
+                <option value="Shoreface">Shoreface / Barrier</option>
+                <option value="Turbidite">Turbidite</option>
+            </select>
+        </div>
+
+        <!-- GO-3b -->
+        <div id="go3bDiv" style="display:none;">
+            <label for="go3DepoCurve">Transport axis curves &gt; 15–20°?</label>
+            <select id="go3DepoCurve">
+                <option value="">--Select--</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <!-- GO-4 -->
+        <div id="go4Div" style="display:none;">
+            <label for="go4Frac">Do mapped fracture corridors dominate connectivity?</label>
+            <select id="go4Frac">
+                <option value="">--Select--</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <!-- GO-4a -->
+        <div id="go4aDiv" style="display:none;">
+            <label for="go4FracCross">Cross-cutting fracture sets present?</label>
+            <select id="go4FracCross">
+                <option value="">--Select--</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <!-- GO-5 -->
+        <div id="go5Div" style="display:none;">
+            <label for="go5Shore">Shoreface / barrier environment?</label>
+            <select id="go5Shore">
+                <option value="">--Select--</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <!-- GO-5a -->
+        <div id="go5aDiv" style="display:none;">
+            <label for="go5ShoreBound">Barrier/lagoon boundaries mapped?</label>
+            <select id="go5ShoreBound">
+                <option value="">--Select--</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <!-- GO-6 -->
+        <div id="go6Div" style="display:none;">
+            <label for="go6Turbidite">Turbidite channels or lobes present?</label>
+            <select id="go6Turbidite">
+                <option value="">--Select--</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <!-- GO-6a -->
+        <div id="go6aDiv" style="display:none;">
+            <label for="go6Lobes">Lobe bodies present?</label>
+            <select id="go6Lobes">
+                <option value="">--Select--</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+    </div>
+    <!-- 3: Stratigraphic Layering --><!-- 3: Stratigraphic Layering -->
+    <div class="section">
+        <h2>3. Stratigraphic Layering</h2>
+        <label for="stratType">Stratigraphic Type<div class="tooltip"><div class="tooltip-icon">?</div><div class="tooltiptext"><div style="display:flex;flex-direction:column;align-items:center;"><img src="https://via.placeholder.com/200x150.png?text=Example+Image" alt="Tooltip Example"><p>Unconformity, Toplap, Truncation, Onlap, Proportional sequences.</p></div></div></div></label>
+        <select id="stratType" multiple>
+            <option value="" disabled>--Select--</option>
+            <option value="ErodedTop">Unconformity / Eroded Top</option>
+            <option value="Toplap">Toplap / Pinch-out</option>
+            <option value="Truncated">Truncation / Truncated Bottom</option>
+            <option value="Onlap">Onlap (Step-up)</option>
+            <option value="Conformable">Conformable Sequence</option>
+        </select>
+    </div>
+
+    <!-- 4: Facies Model -->
+    <div class="section">
+        <h2>4. Facies Model</h2>
+        <label for="resType">Reservoir Type<div class="tooltip"><div class="tooltip-icon">?</div><div class="tooltiptext"><div style="display:flex;flex-direction:column;align-items:center;"><img src="https://via.placeholder.com/200x150.png?text=Example+Image" alt="Tooltip Example"><p>Fractured vs. Non-fractured.</p></div></div></div></label>
+        <select id="resType" multiple>
+            <option value="">--Select--</option>
+            <option value="Fractured">Fractured</option>
+            <option value="Non-fractured">Non-fractured</option>
+        </select>
+        <div id="lithologyDiv" style="display:none;">
+            <label for="lithology">Lithology<div class="tooltip"><div class="tooltip-icon">?</div><div class="tooltiptext"><div style="display:flex;flex-direction:column;align-items:center;"><img src="https://via.placeholder.com/200x150.png?text=Example+Image" alt="Tooltip Example"><p>Clastic vs. Non-clastic.</p></div></div></div></label>
+            <select id="lithology" multiple>
+                <option value="">--Select--</option>
+                <option value="Clastic">Clastic</option>
+                <option value="Non-clastic">Non-clastic</option>
+            </select>
+        </div>
+        <div id="clasticDiv" style="display:none;">
+            <label for="clasticType">Clastic Subtype<div class="tooltip"><div class="tooltip-icon">?</div><div class="tooltiptext"><div style="display:flex;flex-direction:column;align-items:center;"><img src="https://via.placeholder.com/200x150.png?text=Example+Image" alt="Tooltip Example"><p>Fluvial, Deltaic/Shoreface, Turbidite.</p></div></div></div></label>
+            <select id="clasticType" multiple>
+                <option value="">--Select--</option>
+                <option value="Fluvial">Fluvial</option>
+                <option value="Deltaic">Deltaic / Shoreface</option>
+                <option value="Turbidite">Turbidite</option>
+            </select>
+        </div>
+        <div id="nonClasticDiv" style="display:none;">
+            <label for="nonClasticType">Non‑clastic Subtype<div class="tooltip"><div class="tooltip-icon">?</div><div class="tooltiptext"><div style="display:flex;flex-direction:column;align-items:center;"><img src="https://via.placeholder.com/200x150.png?text=Example+Image" alt="Tooltip Example"><p>Carbonate, Volcanic, Coalbed Methane.</p></div></div></div></label>
+            <select id="nonClasticType" multiple>
+                <option value="">--Select--</option>
+                <option value="Carbonate">Carbonates (Platform/Reef)</option>
+                <option value="Volcanic">Volcanic</option>
+                <option value="CoalbedMethane">Coalbed Methane</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- 5: Trend Map -->
+    <div class="section">
+        <h2>5. Trend Map</h2>
+        <label for="geoTrend">Geological Trend Map Available?<div class="tooltip"><div class="tooltip-icon">?</div><div class="tooltiptext"><div style="display:flex;flex-direction:column;align-items:center;"><img src="https://via.placeholder.com/200x150.png?text=Example+Image" alt="Tooltip Example"><p>EOD and/or seismic trend map?</p></div></div></div></label>
+        <select id="geoTrend" multiple>
+            <option value="">--Select--</option>
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+        </select>
+        <div id="trendTypeDiv" style="display:none;">
+            <label for="trendType">Trend Map Type<div class="tooltip"><div class="tooltip-icon">?</div><div class="tooltiptext"><div style="display:flex;flex-direction:column;align-items:center;"><img src="https://via.placeholder.com/200x150.png?text=Example+Image" alt="Tooltip Example"><p>EOD, seismic, or both?</p></div></div></div></label>
+            <select id="trendType" multiple>
+                <option value="">--Select--</option>
+                <option value="EOD">EOD Map only</option>
+                <option value="Seismic">Seismic Trend Map only</option>
+                <option value="Both">Both</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- 6: Variogram Analysis -->
+    <div class="section">
+        <h2>6. Variogram Analysis</h2>
+        <label for="wellDensity">Well Data Density<div class="tooltip"><div class="tooltip-icon">?</div><div class="tooltiptext"><div style="display:flex;flex-direction:column;align-items:center;"><img src="https://via.placeholder.com/200x150.png?text=Example+Image" alt="Tooltip Example"><p>Avg well-to-well spacing.</p></div></div></div></label>
+        <select id="wellDensity" multiple>
+            <option value="">--Select--</option>
+            <option value=">2km">Low – &gt;2 km</option>
+            <option value="1-2km">Medium – 1–2 km</option>
+            <option value="<1km">High – ≤ 1 km</option>
+        </select>
+    </div>
+
+    <!-- 7: Porosity Model (Stepwise Cascading with Button) -->
+    <div class="section" id="porositySection">
+        <h2>7. Porosity Model</h2>
+
+        <!-- Step 1 -->
+        <div id="q1Div">
+            <label for="q1WellLog">Do you have Well Log Porosity?</label>
+            <select id="q1WellLog">
+                <option value="">--Select--</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <!-- Step 2 -->
+        <div id="q2Div" style="display:none;">
+            <label for="q2Trend">Do you have a Porosity-Depth Trend?</label>
+            <select id="q2Trend">
+                <option value="">--Select--</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <!-- Step 3 -->
+        <div id="q3Div" style="display:none;">
+            <label for="q3Variogram">Do you have a Variogram?</label>
+            <select id="q3Variogram">
+                <option value="">--Select--</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <!-- Step 4 -->
+        <div id="q4Div" style="display:none;">
+            <label for="q4PorosityType">Is Porosity Continuous or Discrete?</label>
+            <select id="q4PorosityType">
+                <option value="">--Select--</option>
+                <option value="Continuous">Continuous</option>
+                <option value="Discrete">Discrete</option>
+            </select>
+        </div>
+
+        <!-- Step 5 -->
+        <div id="q5Div" style="display:none;">
+            <label for="q5Secondary">Do you have Secondary Data (Seismic/Facies)?</label>
+            <select id="q5Secondary">
+                <option value="">--Select--</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <!-- Step 6 -->
+        <div id="q6Div" style="display:none;">
+            <label for="q6Facies">Do you have Facies Logs + Facies Model?</label>
+            <select id="q6Facies">
+                <option value="">--Select--</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <!-- Step 7 -->
+        <div id="q7Div" style="display:none;">
+            <label for="q7SeismicML">Do you have Seismic Inversion or ML Features?</label>
+            <select id="q7SeismicML">
+                <option value="">--Select--</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        </div> 
+
+        <!-- 8: Permeability Model -->
+        <div class="section">
+            <h2>8. Permeability Model</h2>
+            <label for="permData">Available Data<div class="tooltip"><div class="tooltip-icon">?</div><div class="tooltiptext"><div style="display:flex;flex-direction:column;align-items:center;"><img src="https://via.placeholder.com/200x150.png?text=Example+Image" alt="Tooltip Example"><p>Core, logs, SCAL, etc.</p></div></div></div></label>
+            <select id="permData">
+                <option value="">--Select--</option>
+                <option value="CoreOnly">Core φ and k only</option>
+                <option value="CoreFacies">Core + Facies</option>
+                <option value="SCAL">SCAL (Pc)</option>
+                <option value="LogsCore">Large log + core dataset</option>
+                <option value="PoroOnly">Only porosity model</option>
+                <option value="Limited">Limited data</option>
+            </select>
+        </div>
+
+
+        <!-- 9: Water Saturation Model -->
+        <!-- 9: Water Saturation Model -->
+        <div class="section" id="swSection">
+            <h2>9. Water Saturation Model</h2>
+
+            <!-- 9.1 Rock type -->
+            <label>
+                Reservoir Rock Type
+                <div class="tooltip">
+                    <div class="tooltip-icon">?</div>
+                    <div class="tooltiptext">
+                        <div style="display:flex;flex-direction:column;align-items:center;">
+                            <img src="https://via.placeholder.com/200x150.png?text=Example+Image" alt="Tooltip Example">
+                            <p>Pick rock family to tailor Sw approach: clean sands, shaly/laminated clastics, or carbonates.</p>
+                        </div>
+                    </div>
+                </div>
+            </label>
+            <div id="swRockGroup" class="sw-row">
+                <label class="sw-opt"><input type="radio" name="swRock" value="clean"> Clean sands</label>
+                <label class="sw-opt"><input type="radio" name="swRock" value="shaly"> Shaly sands / laminated clastics</label>
+                <label class="sw-opt"><input type="radio" name="swRock" value="carbonate"> Carbonates</label>
+            </div>
+
+            <!-- 9.2 Data availability -->
+            <div id="swDataField" style="display:none;">
+                <label>
+                    Data Availability
+                    <div class="tooltip">
+                        <div class="tooltip-icon">?</div>
+                        <div class="tooltiptext">
+                            <div style="display:flex;flex-direction:column;align-items:center;">
+                                <img src="https://via.placeholder.com/200x150.png?text=Example+Image" alt="Tooltip Example">
+                                <p>Choose what you have: logs only, logs + FWL, logs + Pc, etc.</p>
+                            </div>
+                        </div>
+                    </div>
+                </label>
+                <div id="swDataOptions" class="sw-col"></div>
+            </div>
+
+            <!-- 9.3 Production/pressure data -->
+            <div id="swProdField" style="display:none;">
+                <label>
+                    Production / pressure data available?
+                    <div class="tooltip">
+                        <div class="tooltip-icon">?</div>
+                        <div class="tooltiptext">
+                            <div style="display:flex;flex-direction:column;align-items:center;">
+                                <img src="https://via.placeholder.com/200x150.png?text=Example+Image" alt="Tooltip Example">
+                                <p>Enables dynamic methods (history match / 4D).</p>
+                            </div>
+                        </div>
+                    </div>
+                </label>
+                <div class="sw-row">
+                    <label class="sw-opt"><input type="radio" name="swProd" value="yes"> Yes</label>
+                    <label class="sw-opt"><input type="radio" name="swProd" value="no"> No</label>
+                </div>
+            </div>
+
+            <!-- 9.4 Rich multi-source data -->
+            <div id="swRichField" style="display:none;">
+                <label>
+                    Rich multi-source data (logs + core + seismic ± production)?
+                    <div class="tooltip">
+                        <div class="tooltip-icon">?</div>
+                        <div class="tooltiptext">
+                            <div style="display:flex;flex-direction:column;align-items:center;">
+                                <img src="https://via.placeholder.com/200x150.png?text=Example+Image" alt="Tooltip Example">
+                                <p>geostatistics / ML updates</p>
+                            </div>
+                        </div>
+                    </div>
+                </label>
+                <div class="sw-row">
+                    <label class="sw-opt"><input type="radio" name="swRich" value="yes"> Yes</label>
+                    <label class="sw-opt"><input type="radio" name="swRich" value="no"> No</label>
+                </div>
+            </div>
+
+            <!-- Hidden sink used by Get Recommendations -->
+            <span id="swMethodText" style="display:none;">—</span>
+        </div>
+
+
+        <button id="calcBtn">Get Recommendations</button>
+        <div id="result"></div>
+
+        <script>
+            // -------------------- TOGGLE CASCADE INPUTS --------------------
+            function resetNextSteps(startStep) {
+                for (let i = startStep; i <= 7; i++) {
+                    const div = document.getElementById('q' + i + 'Div');
+                    const sel = document.getElementById('q' + i);
+                    if (div) div.style.display = 'none';
+                    if (sel) sel.selectedIndex = 0;
+                }
+            }
+
+            document.getElementById('structComp').addEventListener('change', function () {
+                const selected = Array.from(this.selectedOptions || []).map(o => o.value);
+                const show = selected.includes('High');
+                document.getElementById('regionDiv').style.display = show ? 'block' : 'none';
+            });
+            document.getElementById('geoTrend').addEventListener('change', function () {
+                const selected = Array.from(this.selectedOptions || []).map(o => o.value);
+                const show = selected.includes('Yes');
+                document.getElementById('trendTypeDiv').style.display = show ? 'block' : 'none';
+            });
+            document.getElementById('resType').addEventListener('change', function () {
+                const selected = Array.from(this.selectedOptions || []).map(o => o.value);
+                const show = selected.includes('Non-fractured');
+                document.getElementById('lithologyDiv').style.display = show ? 'block' : 'none';
+                document.getElementById('clasticDiv').style.display = 'none';
+                document.getElementById('nonClasticDiv').style.display = 'none';
+            });
+            document.getElementById('lithology').addEventListener('change', function () {
+                const selected = Array.from(this.selectedOptions || []).map(o => o.value);
+                document.getElementById('clasticDiv').style.display = selected.includes('Clastic') ? 'block' : 'none';
+                document.getElementById('nonClasticDiv').style.display = selected.includes('Non-clastic') ? 'block' : 'none';
+            });
+
+            // Cascading Porosity Questions
+            document.getElementById('q1WellLog').addEventListener('change', function () {
+                resetNextSteps(2);
+                if (this.value === 'Yes') document.getElementById('q2Div').style.display = 'block';
+            });
+            document.getElementById('q2Trend').addEventListener('change', function () {
+                resetNextSteps(3);
+                if (this.value === 'No') document.getElementById('q3Div').style.display = 'block';
+            });
+            document.getElementById('q3Variogram').addEventListener('change', function () {
+                resetNextSteps(4);
+                if (this.value === 'Yes') document.getElementById('q4Div').style.display = 'block';
+                else document.getElementById('q5Div').style.display = 'block';
+            });
+            document.getElementById('q5Secondary').addEventListener('change', function () {
+                resetNextSteps(6);
+                if (this.value === 'Yes') document.getElementById('q6Div').style.display = 'block';
+            });
+            document.getElementById('q6Facies').addEventListener('change', function () {
+                resetNextSteps(7);
+                if (this.value === 'No') document.getElementById('q7Div').style.display = 'block';
+            });
+
+            // -------------------- Set up GET RECOMMENDATIONS --------------------
+            // Helper to fetch multi-select values
+            function getSelectedValues(id) {
+                const select = document.getElementById(id);
+                return Array.from(select.selectedOptions).map(o => o.value);
+            }
+
+            // Simple getter for single-value fields (kept for parity with your original script)
+            function val(id) { const el = document.getElementById(id); return el ? el.value : ''; }
+
+
+            // Get the visible text of a single-select (used to echo the chosen data)
+            function selectedText(id) {
+                const el = document.getElementById(id);
+                return el && el.options && el.selectedIndex >= 0 ? el.options[el.selectedIndex].text : '';
+            }
+
+
+
+            // ---- Section 2: Grid Orientation cascading ----
+            (function () {
+                const v = id => (document.getElementById(id)?.value || '');
+                const show = (id, on) => { const d = document.getElementById(id); if (d) d.style.display = on ? 'block' : 'none'; };
+                const resetSel = (id) => { const el = document.getElementById(id); if (el) el.selectedIndex = 0; };
+
+                function updateGO() {
+                    const go1 = v('go1Faults');
+                    show('go2Div', go1 === 'Yes');
+                    if (go1 !== 'Yes') { resetSel('go2MultiFaults'); }
+
+                    // Proceed step-by-step after go1 answered
+                    show('go3Div', !!go1);
+                    const go3k = v('go3DepoKnown');
+
+                    show('go3aDiv', go3k === 'Yes');
+                    if (go3k !== 'Yes') { resetSel('go3DepoType'); resetSel('go3DepoCurve'); resetSel('go3ShoreBound'); }
+
+                    const go3type = v('go3DepoType');
+                    show('go3bDiv', go3k === 'Yes' && go3type === 'Channel');
+                    if (!(go3k === 'Yes' && go3type === 'Channel')) { resetSel('go3DepoCurve'); }
+
+                    // Fractures step visible after go3 answered
+                    show('go4Div', !!go3k);
+                    const go4 = v('go4Frac');
+                    show('go4aDiv', go4 === 'Yes');
+                    if (go4 !== 'Yes') { resetSel('go4FracCross'); }
+
+                    // TURBIDITE: GO-6 & GO-6a ONLY when GO-3a = Turbidite
+                    const showTurbidite = (go3k === 'Yes' && go3type === 'Turbidite');
+                    show('go6Div', showTurbidite);
+                    if (!showTurbidite) { resetSel('go6Turbidite'); resetSel('go6Lobes'); }
+                    const go6 = v('go6Turbidite');
+                    show('go6aDiv', showTurbidite && go6 === 'Yes');
+                    if (!(showTurbidite && go6 === 'Yes')) { resetSel('go6Lobes'); }
+
+                }
+
+                ['go1Faults', 'go2MultiFaults', 'go3DepoKnown', 'go3DepoType', 'go3DepoCurve',
+                    'go3ShoreBound', 'go4Frac', 'go4FracCross', 'go5Shore', 'go5ShoreBound',
+                    'go6Turbidite', 'go6Lobes',].forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) el.addEventListener('change', updateGO);
+                    });
+
+                document.addEventListener('DOMContentLoaded', updateGO);
+            })();
+            // Initialize Choices on all selects (guarded against double init)
+            document.addEventListener('DOMContentLoaded', function () {
+                document.querySelectorAll('select').forEach(select => {
+                    if (select.dataset.choicesBound === '1') return;
+                    if (select.closest('.choices')) { select.dataset.choicesBound = '1'; return; }
+                    new Choices(select, {
+                        removeItemButton: true,
+                        searchEnabled: false,
+                        itemSelectText: ''
+                    });
+                    select.dataset.choicesBound = '1';
+                });
+            });
+            // -------------------- GET RECOMMENDATIONS --------------------
+            document.getElementById('calcBtn').addEventListener('click', function () {
+                function val(id) { var el = document.getElementById(id); return el ? el.value : ''; }
+
+                // Collect all inputs
+                const ft = val('fieldTypeGrid'), sc = val('structComp'), rg = val('region'), pg = val('projGridType');
+                const st = getSelectedValues('stratType').filter(Boolean); // ["ErodedTop", "Onlap", ...]
+                const res = val('resType'), lith = val('lithology'), cls = val('clasticType'), ncls = val('nonClasticType');
+                const geo = val('geoTrend'), trend = val('trendType');
+                const wd = val('wellDensity');
+                const pd = val('poroData'), da = val('dataAvail');
+                const sw = (document.getElementById('swMethodText') || {}).textContent || '—';
+
+                // Porosity Cascading
+                const q1 = val('q1WellLog'), q2 = val('q2Trend'), q3 = val('q3Variogram'), q4 = val('q4PorosityType');
+                const q5 = val('q5Secondary'), q6 = val('q6Facies'), q7 = val('q7SeismicML');
+
+                let html = '<h2>Recommendations</h2><ul>';
+
+                // 0. Modelling Approach
+                if (da) {
+                    const methods = {
+                        High: 'High Density Data: Full-field 3D geostatistical model; variogram analysis; multi-realization flow simulation.',
+                        Medium: 'Medium Density Data: Hybrid deterministic-stochastic approach; flow-based upscaling.',
+                        Low: 'Low Density Data: Conceptual analog model; screening-level volumetrics & simple simulation.'
+                    };
+                    html += `<li><strong>Modelling Approach:</strong> ${methods[da]}</li>`;
+                }
+
+                // 1. Grid Design
+                const sizeMap = {
+                    Brown: { EOR: ['25×25 m/50×50 m', '≤ 1 m'], WaterDisp: ['100×100 m/150×150 m', '1–2 m'], DevInfill: ['50×50 m/100×100 m', '1–2 m'], CCS: ['25×25 m/50×50 m', '≤ 1 m'] },
+                    Green: { FDP: ['100×100 m–200×200 m', '2–4 m'], Exploration: ['100×100 m–200×200 m', '2–4 m'], CCS: ['100×100 m–200×200 m', '2–4 m'] }
+                };
+                if (ft && sc && pg) {
+                    const base = (sc === 'High') ? 'VBM/Unstructured' : 'Pillar';
+                    const type = (sc === 'High') ? ((rg === 'Many') ? 'Stair-step' : 'Depogrid') : 'Pillar';
+                    const sz = sizeMap[ft] && sizeMap[ft][pg];
+                    if (sz) html += `<li><strong>1. Grid Design:</strong> ${base} + ${type}; Horizontal: ${sz[0]}; Vertical: ${sz[1]}</li>`;
+                }
+
+                // 2. Grid Orientation
+                const go1 = val('go1Faults'), go2 = val('go2MultiFaults');
+                const go3k = val('go3DepoKnown'), go3type = val('go3DepoType'), go3curve = val('go3DepoCurve'), go3shoreB = val('go3ShoreBound');
+                const go4 = val('go4Frac'), go4cross = val('go4FracCross');
+                const go5 = val('go5Shore'), go5B = val('go5ShoreBound');
+                const go6 = val('go6Turbidite'), go6lobes = val('go6Lobes');
+                const go7 = val();
+                const orient = [];
+
+                if (go1 === 'Yes') {
+                    orient.push('Make the grid <strong>fault-conformal</strong>: faces on the fault plane, grid lines parallel to fault strike on map view.');
+                    if (go2 === 'Yes') { orient.push('Multiple/curved faults: <strong>locally sub-block</strong> refined grids where curvature is high.'); }
+                }
+                if (go3k === 'Yes') {
+                    if (go3type === 'Channel') {
+                        orient.push('Set <strong>I-axis parallel to transport/shoreline</strong>; <strong>J-axis transverse</strong>, or elongate along flow.');
+                        if (go3curve === 'Yes') { orient.push('Axis curves &gt;15–20°: <strong>locally rotate blocks</strong> so I-axis follows the flow axis.'); }
+                    } else if (go3type === 'Shoreface') {
+                        orient.push('<strong>I-axis parallel to shoreline (longshore)</strong>, <strong>J-axis cross-shore</strong>' + (go3shoreB === 'Yes' ? ', constrain grid edge to barrier/lagoon boundaries.' : '.'));
+                    } else if (go3type === 'Turbidite') {
+                        orient.push('<strong>I-axis parallel to downslope/channel</strong>; <strong>J-axis transverse</strong>.');
+                        if (go6 === 'Yes') {
+                            orient.push('Turbidite channels or lobes present: track channels downslope, maintain <strong>I-axis parallel to channel axis</strong>.');
+                            if (go6lobes === 'Yes') { orient.push('Lobes present: use local <strong>segment</strong> to be able to orient fan direction within lobe bodies.'); }
+                        } else if (go6 === 'No') {
+                            orient.push('No mapped channels/lobes: use blocks parallel to downslope, or blocks elongation along slope.');
+                        }
+                    }
+                } else if (go3k === 'No') {
+                    if (go4 === 'Yes') {
+                        orient.push('Align a lateral axis <strong>parallel to fracture corridor trend</strong>; <strong>place grid faces on corridors</strong>.');
+                        if (go4cross === 'Yes') { orient.push('Cross-cutting sets: keep grid faces on dominant fracture set, use <strong>DFN</strong> or local sub-blocking for the secondary set.'); }
+                    }
+                    if (go5 === 'Yes') {
+                        orient.push('<strong>I-axis parallel to shoreline (longshore)</strong>; <strong>J-axis cross-shore</strong>' + (go5B === 'Yes' ? 'constrain grid edge to barrier/lagoon boundaries.' : '.'));
+                    }
+                }
+
+                if (orient.length) {
+                    html += '<li><strong>2. Grid Orientation:</strong><ul>' + orient.map(x => '<li>' + x + '</li>').join('') + '</ul></li>';
+                } else {
+                    html += '<li><strong>2. Grid Orientation:</strong> Select cascading options in Section 2 to generate guidance.</li>';
+                }
+
+                // 3. Stratigraphic Layering
+                const layerMap = {
+                    ErodedTop: 'Follow base',
+                    Toplap: 'Follow base',
+                    Truncated: 'Follow top',
+                    Onlap: 'Follow top',
+                    Conformable: 'Proportional layering'
+                };
+
+                // Optional: display-friendly names
+                const labelMap = {
+                    ErodedTop: 'Unconformity / Eroded Top',
+                    Toplap: 'Toplap / Pinch-out',
+                    Truncated: 'Truncation / Truncated Bottom',
+                    Onlap: 'Onlap (Step-up)',
+                    Conformable: 'Conformable Sequence'
+                };
+
+                // st should already be an array from getSelectedValues
+                if (st.length) {
+                    // Create a nested list: each selection gets its own bullet
+                    const nestedList = st
+                        .map(type => {
+                            const rec = layerMap[type];
+                            if (!rec) return '';
+                            const label = labelMap[type] || type;
+                            return `<li>${label}: <em>${rec}</em></li>`;
+                        })
+                        .join('');
+
+                    html += `<li><strong>3. Stratigraphic Layering:</strong><ul>${nestedList}</ul></li>`;
+                } else {
+                    html += `<li><strong>3. Stratigraphic Layering:</strong> <em>No stratigraphic type selected.</em></li>`;
+                }
+
+
+                // 4. Facies Model
+                if (res) {
+                    let msg = '';
+                    if (res === 'Fractured') msg = 'Use DFN (Discrete Fracture Network)';
+                    else if (res === 'Non-fractured') {
+                        if (lith === 'Clastic') {
+                            if (cls === 'Fluvial') msg = 'Object-Based or Pixel-Based';
+                            if (cls === 'Deltaic') msg = 'Pixel-Based';
+                            if (cls === 'Turbidite') msg = 'Object-Based';
+                        }
+                        if (lith === 'Non-clastic') {
+                            if (ncls === 'Carbonate') msg = 'Object or Pixel + Trends';
+                            if (ncls === 'Volcanic') msg = 'Pixel-Based (complex)';
+                            if (ncls === 'CoalbedMethane') msg = 'Pixel + Trend';
+                        }
+                    }
+                    if (msg) html += `<li><strong>4. Facies Model:</strong> ${msg}</li>`;
+                }
+
+                // 5. Trend Map
+                if (geo === 'Yes' && trend) {
+                    const tmap = { EOD: 'Use for facies/trend zoning', Seismic: 'Use for property distribution / co-kriging drift', Both: 'EOD for zoning; Seismic for property distribution' };
+                    html += `<li><strong>5. Trend Map:</strong> ${tmap[trend]}</li>`;
+                }
+
+                // 6. Variogram Analysis
+                if (wd) {
+                    const vmsg = (wd === '>2km') ? 'Data is too sparse, therefore, skip variogram analysis; spacing > 2 km.' : 'Spatial data is close enough to perform variogram analysis for spatial continuity.';
+                    html += `<li><strong>6. Variogram Analysis:</strong> ${vmsg}</li>`;
+                }
+
+                // 7. Porosity Model (Cascading Decision)
+                let poroRec = "";
+                if (q1 === "No") poroRec = "Used Analogue data from regional or nearby fields";
+                else if (q2 === "Yes") poroRec = "Trend-Based Deterministic";
+                else if (q3 === "Yes" && q4 === "Continuous") poroRec = "SGS (Sequential Gaussian Simulation)";
+                else if (q3 === "Yes" && q4 === "Discrete") poroRec = "SIS (Sequential Indicator Simulation)";
+                else if (q5 === "No") poroRec = "IDW / Nearest Neighbor";
+                else if (q6 === "Yes") poroRec = "Facies-Controlled Modeling";
+                else if (q7 === "Yes") poroRec = "Rock Physics / Seismic Driven or Machine Learning";
+                else if (q7 === "No") poroRec = "Co-Kriging / Co-Simulation";
+
+                if (poroRec) html += `<li><strong>7. Porosity Model:</strong> ${poroRec}</li>`;
+
+
+                // 8. Permeability Model (table-driven from permData)
+                const permMap = {
+                    CoreOnly: 'Simple regression',
+                    CoreFacies: 'Facies-based regression or FZI',
+                    SCAL: 'FZI or capillary-based methods',
+                    LogsCore: 'Machine Learning or Neural Network',
+                    PoroOnly: 'Geostatistical simulation with poro-k transform',
+                    Limited: 'Use analog poro-perm trend (risky; verify sensitivity)'
+                };
+
+                const permVal = val('permData');                 // e.g., "CoreOnly"
+                const permText = selectedText('permData') || '—'; // e.g., "Core φ and k only"
+                const permRec = permMap[permVal];
+
+                if (permRec) {
+                    html += `<li><strong>8. Permeability Model:</strong> <em>${permText}</em> → ${permRec}.</li>`;
+                } else {
+                    html += `<li><strong>8. Permeability Model:</strong> Select “Available Data” to get a recommendation.</li>`;
+                }
+
+
+                // 9. Water Saturation Model (from cascaded Section 9)
+                if (sw && sw !== '—') {
+                    html += `<li><strong>9. Water Saturation Model:</strong> ${sw}</li>`;
+                }
+
+                html += '</ul>';
+                document.getElementById('result').innerHTML = html;
+            });
+        </script>
+        <script>
+            // Robust tooltip click handling without touching other logic
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('.tooltip').forEach(tooltip => {
+                    const icon = tooltip.querySelector('.tooltip-icon');
+                    const tipBox = tooltip.querySelector('.tooltiptext');
+
+                    icon.addEventListener('click', e => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const isOpen = tipBox.classList.contains('show');
+                        // Close all other tooltips
+                        document.querySelectorAll('.tooltiptext.show').forEach(el => el.classList.remove('show'));
+                        // Toggle current
+                        if (!isOpen) tipBox.classList.add('show');
+                    });
+                });
+
+                document.addEventListener('click', () => {
+                    document.querySelectorAll('.tooltiptext.show').forEach(el => el.classList.remove('show'));
+                });
+            });
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                document.querySelectorAll('select').forEach(select => {
+                    new Choices(select, {
+                        removeItemButton: true,
+                        searchEnabled: false,
+                        itemSelectText: '',
+                    });
+                });
+            });
+        </script>
+
+        <script>
+            function getSelectedValues(id) {
+                const select = document.getElementById(id);
+                return Array.from(select.selectedOptions).map(o => o.value);
+            }
+        </script>
+
+
+
+        <script>
+            // --- SW2-like cascade logic (no theme changes) ---
+            (function () {
+                const DATA = {
+                    clean: [
+                        { id: "clean-logs", label: "Logs only", rec: "Archie (petrophysical; clean sands)" },
+                        { id: "clean-fwl", label: "Logs + FWL (no Pc)", rec: "Saturation-Height Model (J-function SHM)" },
+                        { id: "clean-pc", label: "Logs + Pc (+FWL)", rec: "Pc–Sw (Leverett J / lab Pc) → J-function SHM, Brooks-Corey" }
+                    ],
+                    shaly: [
+                        { id: "shaly-logs", label: "Logs only", rec: "Shale-corrected resistivity (Simandoux / Waxman–Smits)" },
+                        { id: "shaly-fwl", label: "Logs + FWL or rock typing", rec: "Facies or non-parametric J-function SHM" },
+                        { id: "shaly-pc", label: "Logs + Pc", rec: "Pc–Sw → J-function SHM, Skelth-Harrison (if real perm is available)" }
+                    ],
+                    carbonate: [
+                        { id: "carb-logs", label: "Logs only", rec: "Empirically calibrated resistivity (carbonates)" },
+                        { id: "carb-pc", label: "Logs + Pc (+FWL)", rec: "Pc–Sw → J-function SHM (rock-type)" }
+                    ]
+                };
+
+                const state = { rock: null, data: null, prod: null, rich: null };
+
+                const $ = s => document.querySelector(s);
+                const $$ = s => Array.from(document.querySelectorAll(s));
+                const show = el => { if (el) el.style.display = 'block'; };
+                const hide = el => { if (el) el.style.display = 'none'; };
+
+                function renderData() {
+                    const host = $("#swDataOptions");
+                    if (!host) return;
+                    host.innerHTML = "";
+                    if (!state.rock) { hide($("#swDataField")); return; }
+                    show($("#swDataField"));
+                    (DATA[state.rock] || []).forEach(o => {
+                        const lab = document.createElement("label");
+                        lab.className = "sw-opt";
+                        lab.innerHTML = `<input type="radio" name="swData" value="${o.id}"> ${o.label}`;
+                        host.appendChild(lab);
+                    });
+                }
+
+                function computeMethod() {
+                    let method = "—";
+                    if (state.rock && state.data) {
+                        const opt = (DATA[state.rock] || []).find(x => x.id === state.data);
+                        if (opt) method = opt.rec;
+                    }
+                    if (state.prod === "yes") {
+                        method = "Dynamic simulation (history matching / streamline / 4D seismic). Use Petrophysical and J-function SHM as priors.";
+                    } else if (state.rich === "yes") {
+                        // Overlay note; keep base method
+                        if (method !== "—") {
+                            method = method + " + geostatistical/ML updates.";
+                        } else {
+                            method = "geostatistical/ML";
+                        }
+                    }
+                    const sink = $("#swMethodText");
+                    if (sink) sink.textContent = method;
+                }
+
+                // Events
+                $("#swRockGroup")?.addEventListener("change", e => {
+                    if (e.target.name !== "swRock") return;
+                    state.rock = e.target.value; state.data = state.prod = state.rich = null;
+                    $$('input[name=swData], input[name=swProd], input[name=swRich]').forEach(n => n.checked = false);
+                    renderData(); hide($("#swProdField")); hide($("#swRichField"));
+                    computeMethod();
+                });
+
+                $("#swDataOptions")?.addEventListener("change", e => {
+                    if (e.target.name !== "swData") return;
+                    state.data = e.target.value; state.prod = state.rich = null;
+                    $$('input[name=swProd], input[name=swRich]').forEach(n => n.checked = false);
+                    show($("#swProdField"));
+                    computeMethod();
+                });
+
+                $("#swProdField")?.addEventListener("change", e => {
+                    if (e.target.name !== "swProd") return;
+                    state.prod = e.target.value;
+                    show($("#swRichField"));
+                    computeMethod();
+                });
+
+                $("#swRichField")?.addEventListener("change", e => {
+                    if (e.target.name !== "swRich") return;
+                    state.rich = e.target.value;
+                    computeMethod();
+                });
+
+                document.addEventListener('DOMContentLoaded', computeMethod);
+            })();
+        </script>
+
+        <style type="text/css">
+            /*Added by chee pin to override green box*/
+            .choices__item {
+                display: inline-block;
+                vertical-align: middle;
+                border-radius: 10px;
+                padding: 0px 10px;
+                font-weight: 500;
+                margin-right: 3.75px;
+                margin-bottom: 3.75px;
+                background-color: white;
+                border: 0px solid #004a5c;
+                color: black;
+                word-break: break-all;
+                box-sizing: initial;
+                font-size: 14px;
+            }
+            .choices__list--multiple .choices__item {
+                display: inline-block;
+                vertical-align: middle;
+                border-radius: 10px;
+                padding: 0px 10px;
+                font-weight: 500;
+                margin-right: 3.75px;
+                margin-bottom: 3.75px;
+                background-color: white;
+                border: 0px solid #004a5c;
+                color: black;
+                word-break: break-all;
+                box-sizing: initial;
+                font-size: 14px;
+            }
+
+                .choices__list--multiple .choices__item.is-highlighted {
+                    background-color: white;
+                    color: black;
+                    border: 0px solid #003642
+                }
+
+        </style>
+
+</body>
+</html>
